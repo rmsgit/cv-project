@@ -1,0 +1,168 @@
+@import '../../app.component';
+
+.padding0{
+	padding: 0;
+}
+ 
+.jobs_container{
+	display: flex;
+
+	.inner{
+		height: inherit;
+
+		.wrapper{
+			height: inherit;
+
+			.block{
+				height: inherit;
+				
+
+				&.filter{
+					@include mobile(){
+						padding: 0;
+						margin-bottom: 15px;
+					}
+					.accordion{
+						font-family: $default_font_family;
+
+						i.dropdown{
+							float: right;
+							margin-right: 0;
+							margin-top: 3px;
+						}
+
+						.title{
+							font-weight: 500;
+							font-family: inherit;
+							background: #f5f5f5;
+							padding: 5px 15px;
+							padding-right: 5px;
+    						margin-bottom: 5px;
+
+						}
+						.content{
+							padding: 5px 15px;
+
+							ul{
+								padding-left: 0;
+
+								li{
+									list-style-type: none;
+									
+									&.select_more{
+										margin-top: 10px;
+									}
+								}
+							}
+						}
+					}
+
+					button.reset_filter{
+						letter-spacing: 0;
+						text-transform: capitalize;
+						width: 100%;
+						border: 1px #6a6969 solid;
+						background: transparent;
+						color: #6a6969;
+						padding: 7px;
+						margin-top: 5px;
+
+						&:hover{
+							background: #f2f2f2;
+						}
+					}
+				}
+				
+
+				&.google_adds{
+					h3{
+						text-align: center;
+					}
+				}
+
+				&.jobs_list{
+					.block_inner{
+						padding: 0;
+
+						ul{
+							padding-left: 0;
+
+							li.job{
+								cursor: pointer;
+								color: #666666;
+								list-style: none;
+								padding: 20px;
+								border-bottom: 1px #eee solid;
+
+								&:hover, &:focus{
+									background: #f7fff9;
+									border-top: 1px $dafault_color solid; 
+									border-bottom: 1px $dafault_color solid;
+									position: relative;
+									margin-top: -1px;
+									outline: 0;
+								}
+
+								h3{
+									font-size: $default_font_size + 5;
+									float: left;
+								}
+
+								.date{
+									float: right;
+									font-size: $default_font_size - 1;
+								}
+
+								.company_details{
+									overflow: hidden;
+									width: 100%;
+									
+									$company_logo_width: 100px;
+
+									.company_details_inner{
+										@include calc('width','100% - '+$company_logo_width);
+										float: left;
+
+										span.company_name{
+											display: block;
+											color: $dafault_color;
+											margin: 3px 0;
+										}
+
+										span.company_location{
+											display: block;
+											i{
+												font-style: normal;
+											}
+											i.city{
+												color: $dafault_color; 
+											}
+										}
+									}
+
+									.company_logo{
+										width: $company_logo_width;
+										min-height: $company_logo_width * 0.65;
+										float: right;
+										background: #eee;
+									}
+								}
+
+								.body{
+									padding-top: 20px;
+
+								}
+							} 
+						}
+					}  
+				}
+
+				.block_inner{
+					height: 100%;
+					background: #fff;
+					padding: 30px 15px;
+				}
+			}
+		}
+	}
+}

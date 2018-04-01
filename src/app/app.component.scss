@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+
+$dafault_color : #2dc08d;
+$default_font_size: 14px;
+$default_font_color: #6a6969;
+$lg_font_size: 36px;
+$default_font_family: 'Roboto', sans-serif;
+
+/* Breakpoints */
+
+$mobile-sm-width: 400px;
+$tablet-width: 768px;
+$desktop-sm-width: 1024px;
+$desktop-width: 1200px;
+
+
+
+
+@mixin box_shadow(){
+	-webkit-box-shadow: 1px 1px 17px -2px rgba(0,0,0,0.53);
+	-moz-box-shadow: 1px 1px 17px -2px rgba(0,0,0,0.53);
+	box-shadow: 1px 1px 17px -2px rgba(0,0,0,0.53);
+}
+
+@mixin calc($key, $value){ 
+  #{$key}: -webkit-calc(#{$value}); 
+  #{$key}: -moz-calc(#{$value}); 
+  #{$key}: calc(#{$value}); 
+}
+
+/* Mixin Breakpoints */
+
+@mixin mobile-sm() {
+  @media (max-width: #{$mobile-sm-width}) {
+    @content;
+  }
+}
+
+@mixin custom-max-width($custom-width) {
+  @media (max-width: #{$custom-width}) {
+    @content;
+  }
+}
+
+@mixin custom-width($custom-width-min, $custom-width-max) {
+  @media (min-width: #{$custom-width-min}) and (max-width: #{$custom-width-max}) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-sm-width - 1px}) {
+    @content;
+  }
+}
+
+*{
+ 	font-family: $default_font_family;
+	color: $default_font_color;
+}
+
+p{
+	font-size: $default_font_size;
+}
+
+
+
+img{
+	max-width: 100%;
+}
+
+.ui.button{
+	background: $dafault_color;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	
+	&:hover{
+		background: darken( $dafault_color, 3%);
+	}
+ 
+
+}
+

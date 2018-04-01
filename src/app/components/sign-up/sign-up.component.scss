@@ -1,0 +1,103 @@
+@import '../../app.component';
+
+
+.sign_up.block, .login.block{
+	width: 400px;
+	display: block;
+	margin: auto;
+	background: #fff;
+	padding: 50px;
+	text-align: center;
+	margin-bottom: 60px;
+
+	h2{
+		color: $dafault_color;
+	}
+	
+	.ui.horizontal{
+		margin: 30px 0;
+		color: #7f7f7f;
+		text-transform: lowercase;
+		font-size: $default_font_size - 1;
+		font-weight: 400;
+	}
+
+	ul.social_login{ 
+		display: table;
+		margin: 30px auto;
+		padding-left: 0;
+
+		li{ 
+			list-style-type: none;
+			display: inline-block;
+
+			&:first-child{
+				margin-right: 10px;
+			}
+
+			a{
+				display: block;
+				padding: 0px;
+				border-radius: 50%;
+				font-size: 20px;
+				width: 40px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				text-decoration: none;;
+
+				i{
+					color: #fff;
+					width: 100%;
+    				margin: 0;
+				}
+
+				&.fb{
+					background: #3a5ba2;
+
+					&:hover{
+						background: lighten(#3a5ba2, 4% );
+					}
+				}
+
+				&.gplus{
+					background: #e1584b;
+
+					&:hover{
+						background: lighten(#e1584b, 4% );
+					}
+				}
+
+			}
+		}
+	}
+
+	form{
+		margin-bottom: 30px;
+
+		.field{
+			width: 100%;
+			margin-bottom: 25px;
+			i{
+				color: #111;
+			}
+			input{
+				background: #ebebeb;
+				border: 0; 
+				padding: 12px;
+				font-size: $default_font_size + 2;
+			}
+		}
+
+		button{
+			text-transform: inherit;
+			letter-spacing: 0;
+			width: 100%;
+			font-size: $default_font_size + 2; 
+		}  
+	}
+
+	p{
+		margin-top: 5px;
+	}
+}

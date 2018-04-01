@@ -1,0 +1,48 @@
+@import '../../../app.component';
+
+.search_jobs{
+	background: #646565;
+	padding: 15px 0;
+
+	.ui.form{
+		.inline.fields{
+			margin-bottom: 0;
+			
+			.wide.field{
+				@include mobile(){
+					padding-right: 0; 
+				}
+			}
+			
+
+			input{
+				@include mobile(){
+					margin-bottom: 15px; 
+				}
+			}
+		}
+		p{
+			color: #fff;
+			font-size: $default_font_size + 1;
+			font-weight: 400;
+
+			strong{
+				color: inherit;
+			}
+
+			@include mobile(){
+				margin-bottom: 15px;
+			}
+		}
+
+		button.button{
+			text-transform: capitalize;
+			letter-spacing: 0;
+			font-size: $default_font_size + 1;
+
+			@include mobile(){
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,189 @@
+@import '../../app.component';
+
+section.header{
+	height: 600px;
+	width: 100%;
+	background: #eee;
+
+	@include custom-width(0px, 1024px){
+		height: auto;
+	} 
+	
+	.header_bottom{
+		padding: 30px 0; 
+
+		@include custom-width(0px, 992px){
+			padding-bottom: 60px;
+		}
+
+		.left_content{
+
+			.img_container{
+				width: 100%;
+				height: 375px;
+				background: #111;
+			}
+		}
+
+		.right_content{
+			text-align: center;
+
+			@include custom-width(0px, 992px){
+				margin-top: 60px;
+			}
+
+			.inner{
+				display: table;
+				height: 100%;
+				width: 100%;
+
+				.content_holder{
+					display: table-cell;
+					vertical-align: middle;
+
+					h2{
+						font-weight: 600;
+						font-size: 36px;
+						margin-bottom: 45px;
+					}
+
+					h3{
+						font-weight: 300;
+						margin-bottom: 45px;
+					}
+ 
+					span{
+						display: block;
+						text-transform: capitalize;
+						margin-top: 20px;
+
+						i{
+							font-weight: 300;
+							font-style: normal;
+							font-size: 13px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ 
+section.section_1{
+	text-align: center;
+	padding: 80px 0;
+	background: #fff;
+
+	.inner{
+		h2{
+			font-size: $lg_font_size;
+			font-weight: 600;
+
+			span{
+				color: $dafault_color; 
+			}
+		}
+
+		p{
+			font-weight: 300;
+			font-size: $default_font_size + 4;
+		}
+		
+		.content_row{
+			margin-top: 60px;
+
+			.left_content{
+				border-right: 1px #eee solid;
+
+				img{
+					@include box_shadow();
+				}
+
+				button.start_now{
+					margin-top: 30px;
+				}
+			}
+
+			.right_content{
+
+				@include custom-width(0px, 992px){
+					margin-top: 50px;
+				}
+
+				h3{
+					font-size: $lg_font_size - 6;
+					font-weight: 600;
+					position: relative;
+					
+					&::before{ 
+					 	height: 3px;
+					 	width: 180px;
+					 	content: '';
+					 	background: $dafault_color;
+					 	position: absolute;
+    					bottom: -15px;
+					}
+				}
+
+				img{
+					margin-top: 50px;
+				}
+			}
+		}
+		
+	}
+}
+
+section.section_2{
+	padding: 80px 0;
+	background: #f6f6f6;
+	text-align: center;
+
+	.inner{
+
+		h2{
+			font-size: $lg_font_size;
+			font-weight: 600;
+			position: relative;
+			margin-bottom: 45px;
+
+			span{
+				color: $dafault_color; 
+			}
+
+			&::before{ 
+			 	height: 3px;
+			 	width: 240px;
+			 	content: '';
+			 	background: $dafault_color;
+			 	position: absolute;
+				bottom: -15px;
+			}
+		}
+		
+		p{
+			font-weight: 300;
+			font-size: $default_font_size + 4;
+		}
+
+		.video_row{
+			margin-top: 60px;
+
+			h3{
+				margin-bottom: 30px;
+
+				span{
+					color: $dafault_color; 
+				}
+			}
+
+			.right_content{
+
+				@include custom-width(0px, 992px){
+					margin-top: 50px;
+				}
+			}
+		}
+	}
+}
