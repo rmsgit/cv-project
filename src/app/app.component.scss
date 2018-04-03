@@ -88,3 +88,12 @@ img{
 
 }
 
+.ui.form{
+  input, textarea, select{
+    outline: 0;
+    
+    &:focus{
+      border-color: $dafault_color;
+    }
+  }
+}

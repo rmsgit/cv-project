@@ -1,2 +1,2 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");*{font-family:"Roboto",sans-serif;color:#6a6969}p{font-size:14px}img{max-width:100%}.ui.button{background:#2dc08d;color:#fff;text-transform:uppercase;letter-spacing:2px}.ui.button:hover{background:#2ab484}
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");*{font-family:"Roboto",sans-serif;color:#6a6969}p{font-size:14px}img{max-width:100%}.ui.button{background:#2dc08d;color:#fff;text-transform:uppercase;letter-spacing:2px}.ui.button:hover{background:#2ab484}.ui.form input,.ui.form textarea,.ui.form select{outline:0}.ui.form input:focus,.ui.form textarea:focus,.ui.form select:focus{border-color:#2dc08d}
 /*# sourceMappingURL=app.component.css.map */
