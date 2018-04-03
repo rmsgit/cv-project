@@ -1,0 +1,133 @@
+ <section class="container-fluid post_job">
+ 	<div class="container">
+		<app-header></app-header>
+	</div> 
+</section>
+<app-search-cv></app-search-cv>
+
+<section class="post_job_container container-fluid"> 
+	<div class="container inner">
+		<div class="job_form wrapper row"> 
+			<form class="ui form">
+				<h2>Post a Job</h2> 
+				<div class="row">
+					<div class="col-md-8 inline_feilds">
+						<div class="field"> 
+						    <input type="text" class="job_title" name="company-name" placeholder="Job Title">
+					  	</div>
+					  	<div class="field divider">
+						    <label>Job Category</label>
+						     <select>
+						      	<option value="">IT</option>
+						      	<option value="1">Accounts</option>
+						      	<option value="0">Tourism</option>
+						    </select>
+					  	</div>
+					  	<div class="field">
+						    <label>Company Name</label>
+						    <input type="text" name="company-name" placeholder="Company Name">
+					  	</div>
+					  	<div class="field">
+						    <label>Location</label>
+						    <input type="text" name="Location" placeholder="Location">
+					  	</div>
+					  	<div class="field">
+						    <label>Application Email</label>
+						    <input type="email" name="Application Email" placeholder="Application Email">
+					  	</div>
+					  	<div class="field">
+						    <label>Closing Date</label>
+						    <input type="date" name="Closing Date" placeholder="Closing Date">
+					  	</div>
+
+					  	<div class="field">
+						    <label>Salery Range</label>
+						    <input type="text" name="Salery Range" placeholder="Salery Range">
+					  	</div> 
+					</div>
+					<div class="col-md-4 file_upload">
+						<div class="file_upload_wrapper">
+							<input type="file" class="file_upload_input" name="company-name" placeholder="Job Title">
+							<div class="content">
+								<div class="inner_content">
+									<h3>Company Logo <i class="icon fa fa-cloud-upload" aria-hidden="true"></i></h3>
+								</div>
+								
+							</div>
+						</div>
+						 
+					</div>
+				</div>
+				<div class="row secondary_row">
+					<div class="col-md-12 inline_feilds">
+						<div class="field full_label divider"> 
+					  		<h3>Job Description</h3>
+						    <textarea></textarea>
+					  	</div>
+					</div>
+				</div>
+
+				<div class="row secondary_row">
+					<div class="col-md-8 inline_feilds"> 
+
+						<h3>Preferred Candidate</h3> 
+
+					  	<div class="field">
+						    <label>Career Level</label>
+						    <input type="text" name="career-level" placeholder="Career Level">
+					  	</div>
+					  	<div class="field">
+						    <label>Years of Experience</label>
+						    <input type="text" name="years-of-experience" placeholder="Years of Experience">
+					  	</div>
+					  	<div class="field">
+						    <label>Residence Location</label>
+						    <input type="email" name="Application Email" placeholder="Residence Location">
+					  	</div>
+					  	<div class="field">
+						    <label>Gender</label>
+						    <select>
+						      	<option value="">Male</option>
+						      	<option value="1">Female</option> 
+						    </select>
+					  	</div>
+
+					  	<div class="field">
+						    <label>Degree</label>
+						    <input type="text" name="degree" placeholder="Degree">
+					  	</div> 
+
+					  	<div class="field">
+						    <label>Age</label>
+						    <input type="text" name="age" placeholder="Age">
+					  	</div>
+					</div>
+				</div>
+
+				<div class="row secondary_row">
+					<div class="col-md-12 inline_feilds">
+						<div class="field full_label divider"> 
+					  		<h3>Qualifications &amp; Skills</h3>
+						    <textarea></textarea>
+					  	</div>
+					</div>
+				</div>
+
+				<div class="row secondary_row">
+					<div class="col-md-12 inline_feilds">
+						<div class="field full_label"> 
+					  		<h3>Benefits</h3>
+						    <textarea></textarea>
+					  	</div>
+					</div>
+				</div>
+				<div class="secondary_row">
+					<button class="ui button" type="button">Preview</button>
+			  		<button class="ui button" type="submit">Post Job</button>
+				</div> 
+			</form>
+
+		</div>
+	</div>
+</section>
+<app-footer></app-footer>

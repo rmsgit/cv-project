@@ -18,7 +18,7 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-            "../node_modules/animate.css/animate.css",
+            "./assets/css/animate.css",
             "styles.css",
             "./assets/css/font-awesome.css"
 
