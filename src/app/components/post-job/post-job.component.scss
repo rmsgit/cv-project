@@ -78,8 +78,11 @@ section.post_job_container{
 
 						input.job_title{
 							font-size: 25px; 
-							border: 0;
-							padding: 0;
+							border: 0; 
+						}
+
+						input, select, textarea{
+							background: #f7f7f7;
 						}
 					}  
 				}
