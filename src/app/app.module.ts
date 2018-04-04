@@ -6,6 +6,8 @@ import { SuiModule } from 'ng2-semantic-ui';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+
 import { AppComponent } from './app.component';
 import { AppRoutes } from "./app.routes";
 
@@ -29,8 +31,18 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { SingleJobComponent } from './components/single-job/single-job.component';
 import { SearchJobsComponent } from './components/sub-components/search-jobs/search-jobs.component'; 
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
-
+var firebaseConfig = {
+  apiKey: "AIzaSyDdAZk2xDplAJ2xSdIyJSF-jv2DUAFG0Fk",
+  authDomain: "test-11bca.firebaseapp.com",
+  databaseURL: "https://test-11bca.firebaseio.com",
+  projectId: "test-11bca",
+  storageBucket: "test-11bca.appspot.com",
+  messagingSenderId: "143228255849"
+};
 
 
 
@@ -51,6 +63,11 @@ import { SearchJobsComponent } from './components/sub-components/search-jobs/sea
   imports: [
     RouterModule.forRoot(AppRoutes),
     SimpleNotificationsModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig), 
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+   
+    
     FormsModule,
     SuiModule,
     BrowserModule,
