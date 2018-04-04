@@ -29,7 +29,9 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { SingleJobComponent } from './components/single-job/single-job.component';
-import { SearchJobsComponent } from './components/sub-components/search-jobs/search-jobs.component'; 
+import { SearchJobsComponent } from './components/sub-components/search-jobs/search-jobs.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
+import { SearchCvComponent } from './components/sub-components/search-cv/search-cv.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -59,6 +61,8 @@ var firebaseConfig = {
     JobsComponent,
     SingleJobComponent,
     SearchJobsComponent, 
+    PostJobComponent, SearchCvComponent
+    
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),

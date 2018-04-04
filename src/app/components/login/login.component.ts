@@ -33,10 +33,7 @@ export class LoginComponent implements OnInit {
 
    }
 
-  ngOnInit() {
-
-  
-  }
+  ngOnInit() {}
 
   emailLogin(f){
     this.auth.auth.signInWithEmailAndPassword(this.email, this.password)
