@@ -6,6 +6,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { SingleJobComponent } from './components/single-job/single-job.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
+
 
 
 export const AppRoutes: Routes = [
@@ -32,6 +34,12 @@ export const AppRoutes: Routes = [
     { path: 'jobs/view-job/:id', 
       component: SingleJobComponent 
     },
+
+     { path: 'jobs/post-job', 
+      component: PostJobComponent 
+    },
+
+
 
   
 ];
