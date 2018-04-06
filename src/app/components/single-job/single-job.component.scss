@@ -1,5 +1,67 @@
 @import '../../app.component';
 
+
+.ui{
+
+	&.modal{ top: 0 !important;  } 
+
+	&#apply_job{
+		width: 450px;
+		overflow-y: scroll;
+		padding: 20px;
+
+		h3{
+			font-size: 19px;
+			margin-bottom: 30px;
+		}
+
+		form{
+			width: 100%;
+
+			.file_upload_wrapper{
+				position: relative;
+				margin-bottom: 30px;
+
+				input{
+					position: relative;
+					opacity: 0; 
+					z-index: 1;
+				}
+
+				.content{
+					position: absolute;
+					top: 0;
+					z-index: 0;
+					padding: 15px 10px;
+				    border: 1px #b5b5b5 dashed;
+				    width: 100%;
+				    cursor: pointer;
+				   
+
+					i{
+						font-size: $default_font_size + 10;
+						float: left;
+						color: $dafault_color;
+					}
+
+					p{
+						float: left;
+						font-size: $default_font_size;
+						margin-top: 4px;
+    					margin-left: 10px;
+					}
+				}
+
+			}
+
+			button.send_application{
+				width: 100%;
+				letter-spacing: 0.05rem;
+			}
+		}
+	}
+}
+
 .single_job_container{
 	display: flex;
 	min-height: 100%;
