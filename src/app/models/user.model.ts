@@ -1,8 +1,9 @@
 
 export class UserModel {
-    name: string;
-    role:string;
-    state: string;
-    token:string;
+      name: string;
+      role:string;
+      email: string;
+      photoURL: string;
+      
   }
   

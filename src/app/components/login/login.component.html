@@ -1,39 +1,39 @@
- <section class="container-fluid login">
- 	<div class="container">
-		<app-header></app-header>
+<section class="container-fluid login">
+    <div class="container">
+        <app-header></app-header>
 
-		<div class="row">
-			<div class="login block wow fadeInUp">
-				<h2>Login</h2>
-				<ul class="social_login">
-					<li>
-						<a href="#" class="fb"><i class="fa fa-facebook icon" aria-hidden="true"></i></a>
-					</li>
-					<li>
-						<a href="#" class="gplus"><i class="fa fa-google-plus icon" aria-hidden="true"></i></a>
-					</li>
-				</ul>
-				 <div class="ui horizontal divider">
-				    Or Use Email
-				  </div>
-				<form class="ui form">  
+        <div class="row">
+            <div class="login block wow fadeInUp">
+                <h2>Login</h2>
+                <ul class="social_login">
+                    <li>
+                        <a href="#" class="fb"><i class="fa fa-facebook icon" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a (click)="gmailLogin()" class="gplus"><i class="fa fa-google-plus icon" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <div class="ui horizontal divider">
+                    Or Use Email
+                </div>
+                <form #f="ngForm" (ngSubmit)="emailLogin(f)" class="ui form">
 
-				  <div class="field ui left icon input"> 
-				  	<i class="fa fa-envelope icon" aria-hidden="true"></i>
-				    <input type="email" name="email" placeholder="Email">
-				  </div>
-				  <div class="field ui left icon input"> 
-				  	<i class="fa fa-lock icon" aria-hidden="true"></i>
-				    <input type="password" name="Password" placeholder="Password">
-				  </div> 
+                    <div class="field ui left icon input">
+                        <i class="fa fa-envelope icon" aria-hidden="true"></i>
+                        <input [(ngModel)]="email" type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="field ui left icon input">
+                        <i class="fa fa-lock icon" aria-hidden="true"></i>
+                        <input [(ngModel)]="password" type="password" name="Password" placeholder="Password">
+                    </div>
 
-				  <button  routerLink="/jobs" class="ui button" type="submit">Login</button>
-				</form>
+                    <button class="ui button " type="submit ">Login</button>
 
-				<a  routerLink="/login" >Forgotten Your Password?</a>
-				<p>Don’t have an account? <a  routerLink="/sign-up" >Create an account</a>.</p>
-				 
-			</div>
-		</div>
- 	</div>
- </section>
+                </form>
+                <a routerLink="/login ">Forgotten Your Password?</a>
+                <p>Don’t have an account? <a routerLink="/sign-up ">Create an account</a>.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
