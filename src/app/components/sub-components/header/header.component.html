@@ -1,17 +1,20 @@
 <div class="header_top">
-	<div class="logo float-left">
-		<a routerLink="/">Talent<span>Liken</span></a>
-	</div>
-	<div class="action_btns float-right">
-		<button class="ui labeled icon button"  routerLink="/sign-up"> 
-	  	<i class="fa fa-user icon"></i>
-	  	Sign Up
-	</button>
-	<button  routerLink="/login" class="ui labeled icon button">
-	  	<i class="fa fa-lock icon" aria-hidden="true"></i>
-	  	Login
-	</button>
-	</div>
-	<div class="clearfix"></div>
+    <div class="logo float-left">
+        <a routerLink="/">Talent<span>Liken</span></a>
+    </div>
+    <div class="action_btns float-right">
+        <button class="ui labeled icon button" routerLink="/sign-up"> 
+			<i class="fa fa-user icon"></i>
+			Sign Up
+		</button>
+        <button *ngIf="!authStore.auth" routerLink="/login" class="ui labeled icon button">
+			<i class="fa fa-lock icon" aria-hidden="true"></i>
+			Login
+		</button>
+        <button *ngIf="authStore.auth" (click)="logout()" class="ui labeled icon button">
+			<i class="fa fa-sign-out icon" aria-hidden="true"></i>
+			Logout
+		</button>
+    </div>
+    <div class="clearfix"></div>
 </div>
-

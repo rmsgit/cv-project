@@ -36,6 +36,8 @@ import { SearchCvComponent } from './components/sub-components/search-cv/search-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { JobModel } from './models/job.model';
+import { MainStoreService } from './store/main.store';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDdAZk2xDplAJ2xSdIyJSF-jv2DUAFG0Fk",
@@ -62,10 +64,9 @@ var firebaseConfig = {
     SingleJobComponent,
     SearchJobsComponent, 
     PostJobComponent, SearchCvComponent
-    
   ],
   imports: [
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, { useHash: true }),
     SimpleNotificationsModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFireDatabaseModule,
@@ -85,10 +86,12 @@ var firebaseConfig = {
     BaseCaller,
     CallerPath,
     AuthCaller,
+    
       /**
      * Store
      */
     AuthStore,
+    MainStoreService,
     /**
      * Helpers
      */

@@ -1,117 +1,115 @@
- <section class="container-fluid single_job_component">
- 	<div class="container">
-		<app-header></app-header>
-	</div> 
+<section class="container-fluid single_job_component">
+    <div class="container">
+        <app-header></app-header>
+    </div>
 </section>
 <app-search-jobs></app-search-jobs>
 <section class="container-fluid single_job_container">
-	<div class="container inner">
-		<div class="row wrapper">
-			<div class="col-md-9 job_desc">
-				<div class="job_desc_inner jblock">
-					<div class="head">
-						<div class="company_details">
-							<div class="company_details_inner">
+    <div class="container inner">
+        <div class="row wrapper">
+            <div class="col-md-9 job_desc">
+                <div class="job_desc_inner jblock">
+                    <div class="head">
+                        <div class="company_details">
+                            <div class="company_details_inner">
 
-								<h3>Reservation Agent</h3>
-								<span class="job_category">Job Category: Hospitality - Rooms</span>
-								<span class="company_name">Jumeirah Group</span>
-								<span class="company_location">
-									<i class="city">Dubai</i>, 
-									<i class="country">United Arab Emirates</i>
-								</span> 
-								<span class="date">Posted on: 31/03/2018</span>
-							</div> 
-							<div class="company_logo">
-								
-							</div> 
-						</div> 
-						<button class="ui button apply_now">Apply Now</button>
-						<div class="clearfix"></div>
-					</div>
-					<div class="body">
-						<div class="job_desc block">
-							<h3>Job Description</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati eos dolores, porro suscipit at, temporibus dicta earum. Quidem maxime assumenda ratione ex magnam excepturi impedit, natus, soluta optio eligendi laudantium!</p>
+                                <h3>{{job.title}}</h3>
+                                <span class="job_category">Job Category: {{job.job_category}}</span>
+                                <span class="company_name">{{job.company_name}}</span>
+                                <span class="company_location">
+									<i class="city">{{job.location}}</i>, 
+									<i class="country">{{job.residence_location}}</i>
+								</span>
+                                <span class="date">Posted on: {{job.meta.date}}</span>
+                            </div>
+                            <div class="company_logo">
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati eos dolores, porro suscipit at, temporibus dicta earum. Quidem maxime assumenda ratione ex magnam excepturi impedit, natus, soluta optio eligendi laudantium!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati eos dolores, porro suscipit at, temporibus dicta earum. Quidem maxime assumenda ratione ex magnam excepturi impedit, natus, soluta optio eligendi laudantium!</p>
-						</div>
-						<div class="qualifications block">
-							<h3>Qualifications and Skills</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odio fugiat natus, delectus adipisci voluptatibus corrupti saepe ad eos quibusdam architecto quam animi ut! Illum sit facere, nulla nostrum voluptas.</p>
-						</div> 
+                            </div>
+                        </div>
+                        <button class="ui button apply_now">Apply Now</button>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="body">
+                        <div class="job_desc block">
+                            <h3>Job Description</h3>
+                            <p>{{job.description}}</p>
 
-						<div class="benifits block">
-							<h3>Benifits</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odio fugiat natus, delectus adipisci voluptatibus corrupti saepe ad eos quibusdam architecto quam animi ut! Illum sit facere, nulla nostrum voluptas.</p>
-						</div>
+                        </div>
+                        <div class="qualifications block">
+                            <h3>Qualifications and Skills</h3>
+                            <p>{{job.title}}</p>
+                        </div>
 
-						<div class="job_details block">
-							<h3>Job Details</h3>
-							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, commodi? Earum accusantium aspernatur quaerat, dolores aperiam enim ipsum aliquam. Aspernatur in omnis sunt ipsam soluta esse maiores, aperiam optio.</li>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste ipsa consectetur natus neque et voluptatibus adipisci sequi vel ipsum. Aliquid quibusdam quod laborum dolorum beatae explicabo, neque deserunt ratione!</li>
-							</ul>
-						</div>
-					</div>
-					<div class="action_btn">
-						<div class="top">
-							<button class="ui button apply_now">Apply Now</button> 
-							<button class="ui button email_to_friend">Email to Friend</button>
-						</div>
-						<div class="bottom">
-							<button class="ui button fb"><i class="fa fa-facebook icon" aria-hidden="true"></i> Facebook</button>
-							<button class="ui button twitter"><i class="fa fa-twitter icon" aria-hidden="true"></i> Twitter</button>
-							<button class="ui button goolge_plus"><i class="fa fa-google-plus icon" aria-hidden="true"></i> Google Plus</button>
-						</div>
-					</div>
-				</div>
+                        <div class="benifits block">
+                            <h3>Benifits</h3>
+                            <p>{{job.benifits}}</p>
+                        </div>
 
-				<div class="similer_jobs jblock">
-					<h3>Apply to similer jobs</h3>
-					<ul> 
-						<li class="sm_jobs">
-							<div class="icon">
-								
-							</div>
-							<div class="job_details">
-								<span class="title">Software Engineer</span>
-								<span class="company">Virtusa</span>
-								<span class="location">Colombo, Sri Lanka</span>
+                        <div class="job_details block">
+                            <h3>Job Details</h3>
+                            <p>
+                                {{job.title}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="action_btn">
+                        <div class="top">
+                            <button class="ui button apply_now">Apply Now</button>
+                            <button class="ui button email_to_friend">Email to Friend</button>
+                        </div>
+                        <div class="bottom">
+                            <button class="ui button fb"><i class="fa fa-facebook icon" aria-hidden="true"></i> Facebook</button>
+                            <button class="ui button twitter"><i class="fa fa-twitter icon" aria-hidden="true"></i> Twitter</button>
+                            <button class="ui button goolge_plus"><i class="fa fa-google-plus icon" aria-hidden="true"></i> Google Plus</button>
+                        </div>
+                    </div>
+                </div>
 
-							</div>
-						</li>
-						<li class="sm_jobs">
-							<div class="icon">
-								
-							</div>
-							<div class="job_details">
-								<span class="title">Senior Auto Mobile Engineer</span>
-								<span class="company">Sri Lankan Airlins</span>
-								<span class="location">Katunayaka, Sri Lanka</span>
+                <div class="similer_jobs jblock">
+                    <h3>Apply to similer jobs</h3>
+                    <ul>
+                        <li class="sm_jobs">
+                            <div class="icon">
 
-							</div>
-						</li>
-						<li class="sm_jobs">
-							<div class="icon">
-								
-							</div>
-							<div class="job_details">
-								<span class="title">Senior Web Designer</span>
-								<span class="company">Al Habthoor Group</span>
-								<span class="location">Dubai, UAE</span>
+                            </div>
+                            <div class="job_details">
+                                <span class="title">Software Engineer</span>
+                                <span class="company">Virtusa</span>
+                                <span class="location">Colombo, Sri Lanka</span>
 
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="google_adds  hidden-xs-down hidden-sm-down col-md-3">
-				<div class="google_adds_inner">
-					<h3>Google Ads</h3>
-				</div>	
-			</div>
-		</div>
-	</div>
+                            </div>
+                        </li>
+                        <li class="sm_jobs">
+                            <div class="icon">
+
+                            </div>
+                            <div class="job_details">
+                                <span class="title">Senior Auto Mobile Engineer</span>
+                                <span class="company">Sri Lankan Airlins</span>
+                                <span class="location">Katunayaka, Sri Lanka</span>
+
+                            </div>
+                        </li>
+                        <li class="sm_jobs">
+                            <div class="icon">
+
+                            </div>
+                            <div class="job_details">
+                                <span class="title">Senior Web Designer</span>
+                                <span class="company">Al Habthoor Group</span>
+                                <span class="location">Dubai, UAE</span>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="google_adds  hidden-xs-down hidden-sm-down col-md-3">
+                <div class="google_adds_inner">
+                    <h3>Google Ads</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <app-footer></app-footer>

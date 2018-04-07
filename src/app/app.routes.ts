@@ -37,9 +37,5 @@ export const AppRoutes: Routes = [
 
      { path: 'jobs/post-job', 
       component: PostJobComponent 
-    },
-
-
-
-  
+    }  
 ];

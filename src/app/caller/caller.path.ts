@@ -13,5 +13,10 @@ export  class CallerPath {
     }
   }
 
+  jobs = {
+    all: '/jobs',
+    byId: (jobId)=>  '/jobs/' + jobId
+  }
+
 
 }
