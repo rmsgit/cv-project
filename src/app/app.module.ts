@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SuiModule } from 'ng2-semantic-ui';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {InlineEditorModule} from '@qontu/ngx-inline-editor';
 
 
 import { AppComponent } from './app.component';
@@ -17,7 +16,7 @@ import { CallerPath } from "./caller/caller.path";
 import { DateHelper } from './helper/date.helper';
 import { NotificationHelper } from './helper/notification.helper';
 import { AuthCaller } from './caller/auth.caller';
-import { AuthStore } from './store/auth.store';
+import { AuthStore } from './store/auth.store'; 
 
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -36,6 +35,7 @@ import { SearchCvComponent } from './components/sub-components/search-cv/search-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CvBuilderComponent } from './components/cv-builder/cv-builder.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDdAZk2xDplAJ2xSdIyJSF-jv2DUAFG0Fk",
@@ -61,7 +61,7 @@ var firebaseConfig = {
     JobsComponent,
     SingleJobComponent,
     SearchJobsComponent, 
-    PostJobComponent, SearchCvComponent
+    PostJobComponent, SearchCvComponent, CvBuilderComponent
     
   ],
   imports: [
@@ -70,10 +70,10 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    InlineEditorModule,
    
     
-    FormsModule,
-    SuiModule,
+    FormsModule, 
     BrowserModule,
     BrowserAnimationsModule
   ],

@@ -18,13 +18,22 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-            "./assets/css/animate.css",
+            "../node_modules/semantic-ui/dist/semantic.min.css",
+            "../node_modules/semantic-ui-calendar/dist/calendar.min.css",
+            "./assets/css/animate.css", 
             "styles.css",
             "./assets/css/font-awesome.css"
+            
+            
+
 
         ],
         "scripts": [
-            "../node_modules/wowjs/dist/wow.min.js"
+            "../node_modules/jquery/dist/jquery.min.js",
+            "../node_modules/semantic-ui/dist/semantic.min.js",
+            "../node_modules/wowjs/dist/wow.min.js",
+            "../node_modules/semantic-ui-calendar/dist/calendar.min.js"
+
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {

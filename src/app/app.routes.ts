@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { SingleJobComponent } from './components/single-job/single-job.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
+import { CvBuilderComponent } from './components/cv-builder/cv-builder.component';
 
 
 
@@ -35,9 +36,15 @@ export const AppRoutes: Routes = [
       component: SingleJobComponent 
     },
 
-     { path: 'jobs/post-job', 
+    { path: 'jobs/post-job', 
       component: PostJobComponent 
     },
+
+    { path: 'cv-builder', 
+      component: CvBuilderComponent 
+    },
+
+
 
 
 
