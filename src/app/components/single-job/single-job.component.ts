@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { CallerPath } from '../../caller/caller.path';
 import { JobModel } from '../../models/job.model';
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   selector: 'app-single-job',
@@ -30,6 +32,16 @@ export class SingleJobComponent implements OnInit {
       }
      
     });
+
   }
+ 
+  public openModal(event: any): void {
+ 
+        $('#apply_job').modal({
+	    	centered: false
+	  	}).modal('show', {allowMultiple: false});
+
+    }
+ 
 
 }
