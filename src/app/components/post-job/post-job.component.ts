@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+
+declare var jquery:any;
+declare var $ :any;
+
 import { JobModel } from '../../models/job.model';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { CallerPath } from '../../caller/caller.path';
 import { Router } from '@angular/router';
 import { NotificationHelper } from '../../helper/notification.helper';
+
 
 @Component({
   selector: 'app-post-job',
@@ -12,7 +17,6 @@ import { NotificationHelper } from '../../helper/notification.helper';
 })
 export class PostJobComponent implements OnInit {
 
-
   job:JobModel = new JobModel();
 
   public path = new CallerPath();
@@ -20,12 +24,16 @@ export class PostJobComponent implements OnInit {
     private db: AngularFireDatabase,
     private message: NotificationHelper,
     private route: Router
-  ) { }
+  ) { 
+      
+      $('#example1').calendar();
+    }
 
   ngOnInit() {
     if(sessionStorage.job_preview){
       this.job = JSON.parse(sessionStorage.job_preview);
     }
+
   }
 
   onSubmit(data){
