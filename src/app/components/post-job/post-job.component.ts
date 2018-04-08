@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+
 declare var jquery:any;
 declare var $ :any;
+
+import { JobModel } from '../../models/job.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { CallerPath } from '../../caller/caller.path';
+import { Router } from '@angular/router';
+import { NotificationHelper } from '../../helper/notification.helper';
+
 
 @Component({
   selector: 'app-post-job',
@@ -9,10 +17,42 @@ declare var $ :any;
 })
 export class PostJobComponent implements OnInit {
 
-  constructor() {  }
+  job:JobModel = new JobModel();
+
+  public path = new CallerPath();
+  constructor(
+    private db: AngularFireDatabase,
+    private message: NotificationHelper,
+    private route: Router
+  ) { 
+      
+      $('#example1').calendar();
+    }
 
   ngOnInit() {
-  	$('#example1').calendar();
+    if(sessionStorage.job_preview){
+      this.job = JSON.parse(sessionStorage.job_preview);
+    }
+
   }
 
+  onSubmit(data){
+    console.log(this.job);
+    this.db.list(this.path.jobs.all)
+    .push(this.job)
+    .then((res)=> {
+      console.log(res)
+      sessionStorage.clear();
+      this.message.successMessage("Saved", "Successful saved.");
+      //this.route.navigateByUrl("/jobs/view-job/"+ res.key)
+      this.route.navigateByUrl("/jobs/");
+      
+    
+    })
+  }
+
+  onPreview(){
+    sessionStorage.job_preview = JSON.stringify(this.job);
+    this.route.navigateByUrl("/jobs/view-job/preview")
+  }
 }

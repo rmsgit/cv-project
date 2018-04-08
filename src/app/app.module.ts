@@ -31,12 +31,14 @@ import { SingleJobComponent } from './components/single-job/single-job.component
 import { SearchJobsComponent } from './components/sub-components/search-jobs/search-jobs.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
 import { SearchCvComponent } from './components/sub-components/search-cv/search-cv.component';
+import { CvBuilderComponent } from './components/cv-builder/cv-builder.component';
+import { EmployerDashboardComponent } from './components/employer-dashboard/employer-dashboard.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { CvBuilderComponent } from './components/cv-builder/cv-builder.component';
-import { EmployerDashboardComponent } from './components/employer-dashboard/employer-dashboard.component';
+import { JobModel } from './models/job.model';
+import { MainStoreService } from './store/main.store';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDdAZk2xDplAJ2xSdIyJSF-jv2DUAFG0Fk",
@@ -64,9 +66,10 @@ var firebaseConfig = {
     SearchJobsComponent, 
     PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent
     
+
   ],
   imports: [
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, { useHash: true }),
     SimpleNotificationsModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFireDatabaseModule,
@@ -86,10 +89,12 @@ var firebaseConfig = {
     BaseCaller,
     CallerPath,
     AuthCaller,
+    
       /**
      * Store
      */
     AuthStore,
+    MainStoreService,
     /**
      * Helpers
      */

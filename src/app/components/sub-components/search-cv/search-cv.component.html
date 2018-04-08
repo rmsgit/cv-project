@@ -1,21 +1,21 @@
 <section class="container-fluid search_cv">
-	<div class="container"> 
-		<form class="ui form "> 
-		  	<div class="inline fields">
-		  		<div class="three wide field"> 
-			      	<p><strong>18</strong> CV's Found</p>
-			    </div>
+    <div class="container">
+        <form #f="ngForm" (ngSubmit)="onSearch(f)" class="ui form ">
+            <div class="inline fields">
+                <div class="three wide field">
+                    <p><strong>18</strong> CV's Found</p>
+                </div>
 
-			    <div class="four wide field"> 
-			      <input type="text" placeholder="Job title">
-			    </div>
-			    <div class="four wide field">
-			      <input type="text" placeholder="Job Category">
-			    </div> 
-			    
-			    <button class="ui button" type="submit">Search CV</button>
-			    
-		  	</div>
-		</form> 
-	</div>
+                <div class="four wide field">
+                    <input [(ngModel)]="name" name="title" type="text" placeholder="Job title">
+                </div>
+                <div class="four wide field">
+                    <input [(ngModel)]="city" name="city" type="text" placeholder="Job Category">
+                </div>
+
+                <button class="ui button" type="submit">Search CV</button>
+
+            </div>
+        </form>
+    </div>
 </section>

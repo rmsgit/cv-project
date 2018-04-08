@@ -33,9 +33,7 @@ export class SignUpComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   emailSignUp(data){
     console.log(data);

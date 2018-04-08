@@ -49,9 +49,4 @@ export const AppRoutes: Routes = [
       component: EmployerDashboardComponent 
     },
 
-
-
-
-
-  
 ];
