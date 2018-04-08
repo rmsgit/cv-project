@@ -39,6 +39,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { JobModel } from './models/job.model';
 import { MainStoreService } from './store/main.store';
+import { JobseekerDashboardComponent } from './components/jobseeker-dashboard/jobseeker-dashboard.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDdAZk2xDplAJ2xSdIyJSF-jv2DUAFG0Fk",
@@ -64,7 +65,7 @@ var firebaseConfig = {
     JobsComponent,
     SingleJobComponent,
     SearchJobsComponent, 
-    PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent
+    PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent, JobseekerDashboardComponent
     
 
   ],
