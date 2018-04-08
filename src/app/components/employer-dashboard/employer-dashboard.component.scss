@@ -23,6 +23,7 @@
 					button{
 						letter-spacing: 0;
 						text-transform: inherit;
+						font-weight: 300;
 					}
 				}
 			}
@@ -32,9 +33,47 @@
 				background: #fff;
 				margin-top: 30px;
 				width: 100%;
+				
+				
 
+				.job_table{
+				 	thead{
 
-				 
+				 		th{
+				 			background: #13c185;
+				 			color: #fff;
+				 			font-weight: 400;
+				 			padding: 20px 15px;
+				 		}
+				 		
+				 	}
+
+				 	tbody{
+
+				 		tr{
+				 			background: #f6f6f6;
+							
+				 			&:nth-child(2n){
+				 				background: #fff;
+				 			} 
+				 		}
+				 		td{
+				 			vertical-align: middle;
+				 			padding: 20px 15px;
+
+				 			a.action_btns{
+								display: block;
+				 			}
+
+				 			button{
+				 				letter-spacing: 0;
+    							font-size: $default_font_size - 1;
+    							text-transform: inherit;
+    							font-weight: 300;
+				 			}
+				 		}
+				 	}
+				}
 			}
 		}
 	}

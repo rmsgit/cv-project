@@ -9,6 +9,7 @@ import { SingleJobComponent } from './components/single-job/single-job.component
 import { PostJobComponent } from './components/post-job/post-job.component';
 import { CvBuilderComponent } from './components/cv-builder/cv-builder.component';
 import { EmployerDashboardComponent } from './components/employer-dashboard/employer-dashboard.component';
+import { JobseekerDashboardComponent } from './components/jobseeker-dashboard/jobseeker-dashboard.component';
 
 
 
@@ -45,8 +46,14 @@ export const AppRoutes: Routes = [
       component: CvBuilderComponent 
     },
 
-    { path: 'dashboard', 
+    { path: 'employer-dashboard', 
       component: EmployerDashboardComponent 
     },
+
+
+    { path: 'jobseeker-dashboard', 
+      component: JobseekerDashboardComponent 
+    },
+    
 
 ];
