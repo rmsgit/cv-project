@@ -11,6 +11,7 @@ declare var $ :any;
   templateUrl: './single-job.component.html',
   styleUrls: ['./single-job.component.css']
 })
+
 export class SingleJobComponent implements OnInit {
 
   public path = new CallerPath();
@@ -30,18 +31,14 @@ export class SingleJobComponent implements OnInit {
           this.job = JSON.parse(JSON.stringify(res));
         });
       }
-     
     });
-
   }
  
   public openModal(event: any): void {
- 
-        $('#apply_job').modal({
-	    	centered: false
-	  	}).modal('show', {allowMultiple: false});
-
-    }
+    $('#apply_job').modal({
+      centered: false
+    }).modal('show', {allowMultiple: false});
+  }
  
 
 }

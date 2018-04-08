@@ -13,7 +13,7 @@ export class SearchJobsComponent implements OnInit {
 
 
   constructor(
-    private store: MainStoreService
+    public store: MainStoreService
   ) {
     
    }

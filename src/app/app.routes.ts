@@ -27,7 +27,7 @@ export const AppRoutes: Routes = [
     	component: LoginComponent 
   	},
 
-    { path: 'jobs', 
+    { path: 'jobs/:page', 
       component: JobsComponent 
     },
 

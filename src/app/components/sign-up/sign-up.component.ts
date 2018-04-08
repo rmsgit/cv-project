@@ -51,7 +51,9 @@ export class SignUpComponent implements OnInit {
             email: this.email
           })
           .then((res)=>{
+            this.router.navigateByUrl('/jobs/0');
             this.message.successMessage("Success", "You created")
+
           })
           .catch((error)=>{
             this.message.errorMessage("Fail", error.message);
@@ -89,14 +91,14 @@ export class SignUpComponent implements OnInit {
           this.db.object(this.path.user.current_user.profile()).set(newUser)
           .then((res)=>{
             this.store.auth =  JSON.parse(JSON.stringify(newUser));
-            this.router.navigateByUrl('/jobs');
+            this.router.navigateByUrl('/jobs/0');
           })
           .catch((error)=>{
             this.message.errorMessage("Fail", error.message);
           })
         }else{
           this.store.auth = JSON.parse(JSON.stringify(user))
-          this.router.navigateByUrl('/jobs')
+          this.router.navigateByUrl('/jobs/0')
         }
       })
     })

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.auth.auth.signInWithEmailAndPassword(this.email, this.password)
     .then((res)=>{
       console.log(res);
-      //localStorage.uid = res.user.uid;
+      localStorage.uid = res.user.uid;
       this.router.navigateByUrl('/jobs')
     })
     .catch((error)=>{
