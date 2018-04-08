@@ -55,6 +55,25 @@ section.post_job_container{
 						display: flex;
 						align-items: center;
 
+						&.job_category{
+
+							label{
+								width: 370px;
+							} 
+
+							select.category{
+								margin-right: 15px; 
+
+								@include mobile(){
+									margin-bottom: 15px;
+								}
+							}
+
+							select.designation{
+
+							}
+						}
+
 						@include mobile(){
 							display: block;
 						}
