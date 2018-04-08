@@ -16,10 +16,11 @@
                         <div class="field">
                             <input type="text" class="job_title" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.title" name="company-name" placeholder="Job Title">
                         </div>
-                        <div class="field divider">
+                        <div class="field divider job_category">
                             <label>Job Category</label>
-                            <select [ngModelOptions]="{standalone: true}" [(ngModel)]="job.job_category">
+                            <select class="category" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.job_category">
 						                </select>
+						     <select class="designation"></select>
                         </div>
                         <div class="field">
                             <label>Company Name</label>
@@ -35,7 +36,14 @@
                         </div>
                         <div class="field">
                             <label>Closing Date</label>
-                            <input type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.close_date" name="Closing Date" placeholder="Closing Date">
+                            <!-- <input type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.close_date" name="Closing Date" placeholder="Closing Date"> -->
+
+                            <div class="ui calendar" id="example1">
+						    	<div class="ui input right icon">
+						      		<i class="fa fa-calendar icon"></i>
+						      		<input type="text" placeholder="Closing Date">
+						    	</div>
+						  	</div>
                         </div>
 
                         <div class="field">
