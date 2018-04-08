@@ -24,15 +24,14 @@ export class PostJobComponent implements OnInit {
     private db: AngularFireDatabase,
     private message: NotificationHelper,
     private route: Router
-  ) { 
-      
-      $('#example1').calendar();
-    }
+  ) { }
 
   ngOnInit() {
     if(sessionStorage.job_preview){
       this.job = JSON.parse(sessionStorage.job_preview);
     }
+
+    $('#example1').calendar();
 
   }
 
