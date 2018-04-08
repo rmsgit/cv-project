@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SuiModule } from 'ng2-semantic-ui';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {InlineEditorModule} from '@qontu/ngx-inline-editor';
 
 
 import { AppComponent } from './app.component';
@@ -17,7 +16,7 @@ import { CallerPath } from "./caller/caller.path";
 import { DateHelper } from './helper/date.helper';
 import { NotificationHelper } from './helper/notification.helper';
 import { AuthCaller } from './caller/auth.caller';
-import { AuthStore } from './store/auth.store';
+import { AuthStore } from './store/auth.store'; 
 
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -32,6 +31,8 @@ import { SingleJobComponent } from './components/single-job/single-job.component
 import { SearchJobsComponent } from './components/sub-components/search-jobs/search-jobs.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
 import { SearchCvComponent } from './components/sub-components/search-cv/search-cv.component';
+import { CvBuilderComponent } from './components/cv-builder/cv-builder.component';
+import { EmployerDashboardComponent } from './components/employer-dashboard/employer-dashboard.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -63,7 +64,9 @@ var firebaseConfig = {
     JobsComponent,
     SingleJobComponent,
     SearchJobsComponent, 
-    PostJobComponent, SearchCvComponent
+    PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent
+    
+
   ],
   imports: [
     RouterModule.forRoot(AppRoutes, { useHash: true }),
@@ -71,10 +74,10 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    InlineEditorModule,
    
     
-    FormsModule,
-    SuiModule,
+    FormsModule, 
     BrowserModule,
     BrowserAnimationsModule
   ],
