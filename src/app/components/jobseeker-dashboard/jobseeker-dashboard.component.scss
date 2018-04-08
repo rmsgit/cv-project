@@ -1,0 +1,210 @@
+@import '../../app.component';
+
+
+.jobseeker_dashbaord{
+	padding: 50px 0;
+
+	.inner{
+
+		.wrapper{
+			
+			.title{
+				text-align: center;
+				width: 100%;
+				h2{
+					font-weight: 500;
+
+					span{
+						color: $dafault_color;
+					} 
+				}
+
+				.action_btn{
+					margin-top: 25px;
+
+					button{
+						letter-spacing: 0;
+						text-transform: inherit;
+						font-weight: 300;
+					}
+				}
+			}
+
+			.body{
+				width: 100%;
+				padding: 30px;
+				background: #fff;	
+				margin-top: 30px;
+
+				.row_{
+					display: flex;
+
+					@include mobile(){
+						display: block;
+					}
+
+				}
+
+				.block{
+					text-align: center;
+
+
+					h3{
+    					font-size: $default_font_size * 2;
+    					font-weight: 400;
+						
+					}
+				
+					.inner{
+						padding: 20px;
+					}
+
+					&.my_resume{
+						
+
+						.my_resume_inner{
+							padding: 30px 15px;
+							background: #f6f6f6;
+							@include box_shadow();
+						}
+
+						ul.action_btns{
+							display: table;
+							margin: auto;
+							margin-top: 30px;
+							padding-left: 0;
+
+							li{
+								list-style: none;
+								margin-right: 15px;
+								display: inline-block;
+								cursor: pointer;
+								color: $dafault_color;
+
+								&:hover{
+									color: darken($dafault_color, 5%);
+								}
+
+								&:last-child{
+									margin-right: 0;
+								}
+							}
+						}
+					}
+
+					&.applied_jobs{
+						.applied_jobs_inner{
+							height: 100%;
+							background: $dafault_color;
+							color: #fff;
+							padding: 30px;
+							@include box_shadow();
+
+
+							h3{
+								color: inherit;
+							}
+
+							table{
+								text-align: center;
+								background: transparent;
+								border-color: #fff;
+								border-top: 0;
+
+								*{
+									background: inherit;
+									border-color: #fff;
+									color: #fff;
+									font-weight: 400;
+								}
+
+								tbody{
+									*{
+										font-weight: 300; 
+									}
+								}
+							}
+						}
+					} 
+				}
+				.google_ads{
+					padding: 30px;
+					background: #f6f6f6;
+					margin-top: 30px;
+					min-height: 150px;
+
+					h3{
+						font-size: $default_font_size * 1.7;
+						color: $dafault_color;
+						font-weight: 500;
+
+					}
+					
+				}
+
+				.jblock{
+					padding: 30px;
+					background: #fff; 
+					margin-bottom: 15px;
+
+					&:last-child{
+						margin-bottom: 0;
+					}
+				}
+				.similer_jobs{
+					h3{
+						font-size: $default_font_size + 6;
+						text-transform: capitalize;
+					}
+					
+					$company_logo_width: 60px;
+
+					ul{
+						padding-left: 0;
+						overflow: hidden;
+
+						li.sm_jobs{
+							list-style-type: none;
+							width: 50%;
+							float: left;
+							padding: 15px 0;
+
+							@include mobile(){
+								width: 100%;
+							}
+
+							.icon{
+								width: $company_logo_width;
+								height: $company_logo_width;
+								background: #eee;
+								border-radius: 50%;
+								float: left;
+							}
+
+							.job_details{
+								padding: 0 15px;
+								float: left;
+								@include calc('width','100% - '+$company_logo_width);
+
+								span{
+									display: block;
+
+									&.title{
+										color: $dafault_color;
+										font-weight: 500;
+										text-align: left;
+									}
+
+									&.location{
+										color: #c8c8c8;
+    									font-size: 13px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
