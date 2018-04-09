@@ -40,7 +40,15 @@ export class LoginComponent implements OnInit {
     .then((res)=>{
       console.log(res);
       localStorage.uid = res.user.uid;
-      this.router.navigateByUrl('/jobs')
+      this.db.object(this.path.user.current_user.profile()).valueChanges().subscribe((user)=>{
+        if(!user){
+            this.router.navigateByUrl('/sign-up');
+        }else{
+          this.store.auth = JSON.parse(JSON.stringify(user))
+          localStorage.auth_store = JSON.stringify(this.store.auth)
+          this.router.navigateByUrl('/jobseeker-dashboard')
+        }
+      })
     })
     .catch((error)=>{
       this.message.errorMessage("Fail", error.message);
@@ -60,7 +68,8 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('/sign-up');
         }else{
           this.store.auth = JSON.parse(JSON.stringify(user))
-          this.router.navigateByUrl('/jobs')
+          localStorage.auth_store = JSON.stringify(this.store.auth)
+          this.router.navigateByUrl('/jobseeker-dashboard')
         }
       })
     })

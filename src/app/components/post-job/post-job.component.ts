@@ -31,7 +31,11 @@ export class PostJobComponent implements OnInit {
       this.job = JSON.parse(sessionStorage.job_preview);
     }
 
-    $('#example1').calendar();
+    $('#example1').calendar({
+      onChange:(date, text)=> {
+          this.job.close_date = text;
+      },
+    });
 
   }
 
@@ -44,7 +48,7 @@ export class PostJobComponent implements OnInit {
       sessionStorage.clear();
       this.message.successMessage("Saved", "Successful saved.");
       //this.route.navigateByUrl("/jobs/view-job/"+ res.key)
-      this.route.navigateByUrl("/jobs/");
+      this.route.navigateByUrl("/jobs/0");
       
     
     })

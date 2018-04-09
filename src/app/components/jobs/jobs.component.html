@@ -4,10 +4,13 @@
     </div>
 </section>
 
-<app-search-jobs *ngIf="store.filterJobs.length"></app-search-jobs>
+<app-search-jobs *ngIf="store.jobs.length"></app-search-jobs>
 
 <section class="animated fadeIn jobs_container container-fluid">
     <!--  ui loading form -->
+    <div *ngIf="!isInitFinish" class="ui active dimmer animated fadeIn">
+        <div class="ui large text loader">Loading data</div>
+    </div>
     <div class="container inner">
         <div class="wrapper row">
             <div class="filter block col-md-3">
@@ -101,7 +104,7 @@
                         <li *ngFor="let job of store.getJobs(page)" class="job animated fadeIn">
                             <div class="head">
                                 <h3 [routerLink]="'/jobs/view-job/'+job.id">
-                                    {{job.title}} - {{job.location}}
+                                    {{job.title}} - {{job.residence_location}}
                                 </h3>
                                 <div class="date">{{job.close_date}}</div>
 
@@ -109,7 +112,7 @@
                                     <div class="company_details_inner">
                                         <span class="company_name" (click)="filterByCompanyName(job.company_name)">{{job.company_name}}</span>
                                         <span class="company_location">
-											<i class="city">{{job.location}}</i>, 
+											<!-- <i class="city">{{job.location}}</i>,  -->
 											<i class="country">{{job.residence_location}}</i>
 										</span>
                                     </div>

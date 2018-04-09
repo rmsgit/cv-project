@@ -5,6 +5,9 @@
 </section>
 <app-search-jobs></app-search-jobs>
 <section class="container-fluid single_job_container">
+    <div *ngIf="!job.title" class="ui active dimmer animated fadeIn">
+        <div class="ui large text loader">Loading data</div>
+    </div>
     <div class="container inner">
         <div class="row wrapper">
             <div class="col-md-9 job_desc">
@@ -14,10 +17,10 @@
                             <div class="company_details_inner">
 
                                 <h3>{{job.title}}</h3>
-                                <span class="job_category">Job Category: {{job.job_category}}</span>
+                                <span class="job_category">Job Category: {{job.job_category}}, {{job.job_sub_category}}</span>
                                 <span class="company_name">{{job.company_name}}</span>
                                 <span class="company_location">
-									<i class="city">{{job.location}}</i>, 
+									<!-- <i class="city">{{job.location}}</i>,  -->
 									<i class="country">{{job.residence_location}}</i>
 								</span>
                                 <span class="date">Posted on: {{job.meta.date}}</span>
@@ -92,34 +95,34 @@
         <div class="ui modal longer " id="apply_job">
             <i class="close icon"></i>
             <div class="image content">
-                <form class="ui form">
+                <form *ngIf="authStore.auth" (submit)="apply()" class="ui form">
                     <div class="row">
                         <div class="col-md-12 inline_feilds">
                             <h3>Apply For This Job</h3>
 
                             <div class="field">
                                 <label>Full Name</label>
-                                <input type="text" name="full-name" placeholder="Full Name">
+                                <input [(ngModel)]="applyJob.auth.name" [ngModelOptions]="{standalone: true}" type="text" name="full-name" placeholder="Full Name">
                             </div>
                             <div class="field">
                                 <label>Email Address</label>
-                                <input type="email" name="email-address" placeholder="Email Address">
+                                <input [(ngModel)]="applyJob.auth.email" [ngModelOptions]="{standalone: true}" type="email" name="email-address" placeholder="Email Address">
                             </div>
                             <div class="field">
                                 <label>Message (Cover Letter) :</label>
-                                <textarea></textarea>
+                                <textarea [(ngModel)]="applyJob.cover_letter" [ngModelOptions]="{standalone: true}"></textarea>
                             </div>
 
                             <div class="field">
                                 <label>Online Resume</label>
-                                <select>
+                                <select [(ngModel)]="applyJob.online_resume" [ngModelOptions]="{standalone: true}">
 							      	<option value="">Choose Online Resume</option>
 							      	<option value="1">---</option> 
 							    </select>
                             </div>
                             <div class="field">
                                 <label>Video Resume</label>
-                                <input type="text" name="video-resume" placeholder="Video Resume">
+                                <input [(ngModel)]="applyJob.video_resume" [ngModelOptions]="{standalone: true}" type="text" name="video-resume" placeholder="Video Resume">
                             </div>
                             <div class="field">
                                 <label>Upload CV</label>
@@ -138,7 +141,7 @@
 
                     </div>
                     <div class="secondary_row">
-                        <button class="ui button send_application" type="button">Send Application</button>
+                        <button class="ui ok button send_application" type="submit">Send Application</button>
                     </div>
                 </form>
             </div>

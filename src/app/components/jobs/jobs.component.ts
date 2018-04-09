@@ -21,6 +21,7 @@ export class JobsComponent implements OnInit {
   public isCitySelectAll:boolean = false;
 
   public page: number = 0;
+  public isInitFinish: boolean = false;
   constructor(
     private db: AngularFireDatabase,
     public store: MainStoreService,
@@ -28,17 +29,16 @@ export class JobsComponent implements OnInit {
     private router: Router
   ) { 
     this.route.params.subscribe(params => {
-      this.page = parseInt(params['page']); // (+) converts string 'id' to a number
-
-      // In a real app: dispatch action to load the details here.
+      this.page = parseInt(params['page']); 
    });
   }
 
 
 
   ngOnInit() {
-
+    this.isInitFinish = false;
     this.db.object(this.path.jobs.all).valueChanges().subscribe((res)=>{
+          this.isInitFinish = false;
            this.store.jobs = new Array<JobModel>();
            this.store.filterJobs  = new Array<JobModel>();
           var jobIds =  Object.keys(res).reverse();
@@ -49,11 +49,11 @@ export class JobsComponent implements OnInit {
             this.store.filterJobs.push(job);
             if(job.residence_location) this.store.currentCuntries[job.residence_location] = false;
             if(job.location) this.store.currentCities[job.location] = false;
-            
           }
     
           this.countyList = Object.keys(this.store.currentCuntries);
           this.cityList = Object.keys(this.store.currentCities);
+          this.isInitFinish = true;
               try {
                 throw  window['accordionInit']();
               }catch(ex){}
