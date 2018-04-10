@@ -20,9 +20,9 @@
         "styles": [
             "../node_modules/semantic-ui/dist/semantic.min.css",
             "../node_modules/semantic-ui-calendar/dist/calendar.min.css",
-            "./assets/css/animate.css", 
-            "styles.css",
-            "./assets/css/font-awesome.css"
+            "./assets/css/animate.css",
+            "./assets/css/fonts.css", 
+            "styles.css"
             
             
 

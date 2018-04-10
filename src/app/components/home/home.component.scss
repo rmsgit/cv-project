@@ -22,6 +22,27 @@ section.header{
 				width: 100%;
 				height: 375px;
 				background: #111;
+				background: url('../../../assets/main-pic.jpg');
+				background-size: cover;
+				display: table;
+
+				.ui.form{
+					padding: 0 80px;
+					text-align: center;
+					display: table-cell;
+					vertical-align: middle;
+
+					h2{
+						color: #fff;
+						text-transform: capitalize;
+						margin-bottom: 30px;
+					}
+
+					button{
+						width: 100%;
+						margin-top: 10px;
+					}
+				}
 			}
 		}
 

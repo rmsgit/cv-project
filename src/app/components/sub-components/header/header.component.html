@@ -4,11 +4,11 @@
     </div>
     <div class="action_btns float-right">
         <button class="ui labeled icon button" routerLink="/sign-up"> 
-			<i class="fa fa-user icon"></i>
+			<i class="icon-user icon"></i>
 			Sign Up
 		</button>
         <button *ngIf="!authStore.auth" routerLink="/login" class="ui labeled icon button">
-			<i class="fa fa-lock icon" aria-hidden="true"></i>
+			<i class="icon-padlock icon" aria-hidden="true"></i>
 			Login
 		</button>
         <button *ngIf="authStore.auth" (click)="logout()" class="ui labeled icon button">
