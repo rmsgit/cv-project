@@ -1,111 +1,65 @@
- <section class="container-fluid dashbaoard">
- 	<div class="container">
-		<app-header></app-header>
-	</div> 
+<section class="container-fluid dashbaoard">
+    <div class="container">
+        <app-header></app-header>
+    </div>
 </section>
 <app-search-cv></app-search-cv>
 
 <section class="container-fluid employer-dashbaord">
-	<div class="container inner">
-		<div class="row wrapper">
-			<div class="title">
-				<h2>Hello <span>Nipuna</span></h2>
-				<p>From your account dashboard you can view, add and edit your jobs, View jobs applicatons and edit your account details.</p>
-				<div class="action_btn">
-					<button class="ui button">Account Settings</button>
-					<button class="ui button">Post a Job</button> 
-				</div>
-			</div>
-			<div class="jobs-container">
-				<table class="ui single line table job_table">
-				  <thead>
-				    <tr>
-				      <th>Jobs</th>
-				      <th>Job Expires</th>
-				      <th>Filled?</th>
-				      <th>Date Posted</th>
-				      <th>Closing Date</th>
-				      <th>Applications</th>
-				      <th></th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <tr>
-				      	<td>Graphic Designer</td>
-				      	<td>April 20, 2018</td>
-				      	<td>
-				      		<div class="ui toggle checkbox">
-						      <input type="checkbox" tabindex="0" class="hidden">
-						      <label>No</label>
-						    </div>
-						</td>
-				      	<td>January 20, 2018</td>
-				      	<td>April 20, 2018</td>
-				      	<td><Button class="ui button">Show (1)</Button></td>
-				      	<td>
-				      		<a href="#" class="action_btns">
-					      		<i class="fa fa-pencil icon" aria-hidden="true"></i>
-					      		Edit Job
-				      		</a>
-				      		<a href="#" class="action_btns">
-					      		<i class="fa fa-pencil icon" aria-hidden="true"></i>
-					      		Delete Job
-				      		</a>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<td>Software Engineer</td>
-				      	<td>April 20, 2018</td>
-				      	<td>
-					      	<div class="ui toggle checkbox">
-						      <input type="checkbox" checked tabindex="0" class="hidden">
-						      <label>Yes</label>
-						    </div>
-						</td>
-				      	<td>January 20, 2018</td>
-				      	<td>April 20, 2018</td>
-				      	<td><Button class="ui button">Show (4)</Button></td>
-				      	<td>
-					      	<a href="#" class="action_btns">
-					      		<i class="fa fa-pencil icon" aria-hidden="true"></i>
-					      		Edit Job
-					      	</a>
-					      	<a href="#" class="action_btns">
-					      		<i class="fa fa-pencil icon" aria-hidden="true"></i>
-					      		Delete Job
-					      	</a>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<td>Software Architech</td>
-				      	<td>April 20, 2018</td>
-				      	<td>
-					      	<div class="ui toggle checkbox">
-						      <input type="checkbox" checked tabindex="0" class="hidden">
-						      <label>Yes</label>
-						    </div>
-						</td>
-				      	<td>January 20, 2018</td>
-				      	<td>April 20, 2018</td>
-				      	<td><Button class="ui button">Show (4)</Button></td>
-				      	<td>
-					      	<a href="#" class="action_btns">
-					      		<i class="fa fa-pencil icon" aria-hidden="true"></i>
-					      		Edit Job
-					      	</a>
-					      	<a href="#" class="action_btns">
-					      		<i class="fa fa-pencil icon" aria-hidden="true"></i>
-					      		Delete Job
-					      	</a>
-				      	</td>
-				    </tr>
-				  </tbody>
-				</table>
-			</div>
-			
-			<p></p>
-		</div>
-	</div>
+    <div class="container inner">
+        <div class="row wrapper">
+            <div class="title">
+                <h2>Hello <span>{{authStore.auth.name}}</span></h2>
+                <p>From your account dashboard you can view, add and edit your jobs, View jobs applicatons and edit your account details.</p>
+                <div class="action_btn">
+                    <button class="ui button">Account Settings</button>
+                    <button routerLink="/jobs/post-job" class="ui button">Post a Job</button>
+                </div>
+            </div>
+            <div class="jobs-container">
+                <table class="ui single line table job_table">
+                    <thead>
+                        <tr>
+                            <th>Jobs</th>
+                            <th>Job Expires</th>
+                            <th>Filled?</th>
+                            <th>Date Posted</th>
+                            <th>Closing Date</th>
+                            <th>Applications</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let job of myPostedJobs">
+                            <td>{{job.title}}</td>
+                            <td>{{job.close_date}}</td>
+                            <td>
+                                <div class="ui toggle checkbox">
+                                    <input type="checkbox" tabindex="0" class="hidden">
+                                    <label>No</label>
+                                </div>
+                            </td>
+                            <td>{{job.meta.date}}</td>
+                            <td>{{job.close_date}}</td>
+                            <td>
+                                <Button class="ui button">Show ({{applyLength[job.id]}} )</Button>
+                            </td>
+                            <td>
+                                <a href="#" class="action_btns">
+                                    <i class="fa fa-pencil icon" aria-hidden="true"></i> Edit Job
+                                </a>
+                                <a href="#" class="action_btns">
+                                    <i class="fa fa-pencil icon" aria-hidden="true"></i> Delete Job
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
 </section>
 
 <app-footer></app-footer>

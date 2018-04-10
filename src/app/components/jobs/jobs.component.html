@@ -4,9 +4,13 @@
     </div>
 </section>
 
-<app-search-jobs></app-search-jobs>
-<section class="jobs_container container-fluid">
+<app-search-jobs *ngIf="store.jobs.length"></app-search-jobs>
+
+<section class="animated fadeIn jobs_container container-fluid">
     <!--  ui loading form -->
+    <div *ngIf="!isInitFinish" class="ui active dimmer animated fadeIn">
+        <div class="ui large text loader">Loading data</div>
+    </div>
     <div class="container inner">
         <div class="wrapper row">
             <div class="filter block col-md-3">
@@ -20,13 +24,13 @@
                             <ul>
                                 <li>
                                     <div class="ui checkbox">
-                                        <input type="checkbox" name="country">
+                                        <input [(ngModel)]="isCountrySelectAll" (change)="countrySelectAll()" type="checkbox" name="country">
                                         <label>All</label>
                                     </div>
                                 </li>
                                 <li *ngFor="let item of countyList">
                                     <div class="ui checkbox">
-                                        <input type="checkbox" name="country">
+                                        <input (change)="onFilterClick()" [(ngModel)]="store.currentCuntries[item]" type="checkbox" name="country">
                                         <label>{{item}}</label>
                                     </div>
                                 </li>
@@ -52,13 +56,13 @@
                             <ul>
                                 <li>
                                     <div class="ui checkbox">
-                                        <input type="checkbox" name="country">
+                                        <input [(ngModel)]="isCitySelectAll" (change)="citySelectAll()" type="checkbox" name="country ">
                                         <label>All</label>
                                     </div>
                                 </li>
                                 <li *ngFor="let item of cityList">
                                     <div class="ui checkbox">
-                                        <input type="checkbox" name="country">
+                                        <input (change)="onFilterClick()" [(ngModel)]="store.currentCities[item]" type="checkbox" name="country">
                                         <label>{{item}}</label>
                                     </div>
                                 </li>
@@ -97,10 +101,10 @@
             <div class="jobs_list block  col-md-6 padding0">
                 <div class="block_inner">
                     <ul>
-                        <li *ngFor="let job of store.filterJobs" class="job animated fadeIn">
+                        <li *ngFor="let job of store.getJobs(page)" class="job animated fadeIn">
                             <div class="head">
                                 <h3 [routerLink]="'/jobs/view-job/'+job.id">
-                                    {{job.title}} - {{job.location}}
+                                    {{job.title}} - {{job.residence_location}}
                                 </h3>
                                 <div class="date">{{job.close_date}}</div>
 
@@ -108,7 +112,7 @@
                                     <div class="company_details_inner">
                                         <span class="company_name" (click)="filterByCompanyName(job.company_name)">{{job.company_name}}</span>
                                         <span class="company_location">
-											<i class="city">{{job.location}}</i>, 
+											<!-- <i class="city">{{job.location}}</i>,  -->
 											<i class="country">{{job.residence_location}}</i>
 										</span>
                                     </div>
@@ -124,7 +128,16 @@
                             </div>
                         </li>
                     </ul>
+
+                    <button (click)="backPage()">
+                        back
+                    </button>
+                    <span>{{page+1}}</span>
+                    <button (click)="nextPage()">
+                        next
+                    </button>
                 </div>
+
             </div>
             <div class="google_adds block hidden-xs-down hidden-sm-down col-md-3">
                 <div class="block_inner">

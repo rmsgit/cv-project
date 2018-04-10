@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainStoreService } from '../../../store/main.store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-jobs',
@@ -13,7 +14,8 @@ export class SearchJobsComponent implements OnInit {
 
 
   constructor(
-    private store: MainStoreService
+    public store: MainStoreService,
+    public router: Router
   ) {
     
    }
@@ -37,13 +39,14 @@ export class SearchJobsComponent implements OnInit {
                                       
                                         .filter( (job) => { 
                                           try{
-                                            return -1 != job.location.toLowerCase().search(this.city.toLowerCase())
+                                            return -1 != job.residence_location.toLowerCase().search(this.city.toLowerCase())
                                           }catch(ex){}
                                           
                                         
                                         })
         
         ;
+        this.router.navigateByUrl('/jobs/0');
   }
 
 }

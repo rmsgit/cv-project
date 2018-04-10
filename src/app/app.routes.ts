@@ -11,8 +11,6 @@ import { CvBuilderComponent } from './components/cv-builder/cv-builder.component
 import { EmployerDashboardComponent } from './components/employer-dashboard/employer-dashboard.component';
 import { JobseekerDashboardComponent } from './components/jobseeker-dashboard/jobseeker-dashboard.component';
 
-
-
 export const AppRoutes: Routes = [
   	{ path: 'profile', 
     	component: PageNotFoundComponent 
@@ -30,9 +28,7 @@ export const AppRoutes: Routes = [
     	component: LoginComponent 
   	},
 
-    { path: 'jobs', 
-      component: JobsComponent 
-    },
+    
 
     { path: 'jobs/view-job/:id', 
       component: SingleJobComponent 
@@ -40,6 +36,10 @@ export const AppRoutes: Routes = [
 
     { path: 'jobs/post-job', 
       component: PostJobComponent 
+		},
+		
+		{ path: 'jobs/:page', 
+      component: JobsComponent 
     },
 
     { path: 'cv-builder', 

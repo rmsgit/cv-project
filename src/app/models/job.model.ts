@@ -2,6 +2,7 @@ export class JobModel{
     id: string;
     title: string;
     job_category:string;
+    job_sub_category:string;
     company_name:string;
     location:string;
     email:string;

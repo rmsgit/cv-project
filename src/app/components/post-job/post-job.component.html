@@ -19,17 +19,23 @@
                         <div class="field divider job_category">
                             <label>Job Category</label>
                             <select class="category" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.job_category">
-						                </select>
-						     <select class="designation"></select>
+                                <option value="hotel">Hospitality</option>            
+                                <option value="it">IT</option>            
+                                <option value="test">Test</option>           
+                            </select>
+                            <select class="designation" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.job_sub_category">
+                                <option value="hotel">Room</option>            
+                                <option value="it">Food</option>  
+                            </select>
                         </div>
                         <div class="field">
                             <label>Company Name</label>
                             <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.company_name" name="company-name" placeholder="Company Name">
                         </div>
-                        <div class="field">
+                        <!-- <div class="field">
                             <label>Location</label>
                             <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.location" name="Location" placeholder="Location">
-                        </div>
+                        </div> -->
                         <div class="field">
                             <label>Application Email</label>
                             <input type="email" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.email" name="Application Email" placeholder="Application Email">
@@ -39,16 +45,17 @@
                             <!-- <input type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.close_date" name="Closing Date" placeholder="Closing Date"> -->
 
                             <div class="ui calendar" id="example1">
-						    	<div class="ui input right icon">
-						      		<i class="fa fa-calendar icon"></i>
-						      		<input type="text" placeholder="Closing Date">
-						    	</div>
-						  	</div>
+                                <div class="ui input right icon">
+                                    <i class="fa fa-calendar icon"></i>
+
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="job.close_date" name="close-date" type="text" placeholder="Closing Date">
+                                </div>
+                            </div>
                         </div>
 
                         <div class="field">
                             <label>Salery Range</label>
-                            <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="job.salery_range" name="Salery Range" placeholder="Salery Range">
+                            <input type="text" name="Salery Range" placeholder="Salery Range">
                         </div>
                     </div>
                     <div class="col-md-4 file_upload">
@@ -57,7 +64,7 @@
                             <div class="content">
                                 <div class="inner_content">
                                     <h3>Company Logo <i class="icon fa fa-cloud-upload" aria-hidden="true"></i></h3>
-                              </div>
+                                </div>
                             </div>
                         </div>
 
