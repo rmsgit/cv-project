@@ -66,9 +66,11 @@ section.cv_builder_wrapper{
 				border: 1px #cacaca solid;
 				margin-bottom: 30px;
 
+				$profile_img: 120px;
+		
 				.user_img{
-					width: 150px;
-					height: 150px;
+					width: $profile_img;
+					height: $profile_img;
 					border: 1px #cacaca solid;
 					background: #eee;
 					border-radius: 50%;
@@ -78,21 +80,21 @@ section.cv_builder_wrapper{
 				
 				.user_details{
 					padding-left: 30px;
-					margin-top: 15px;
+					margin-top: 10px;
 					float: left;
-					@include calc('width', '100% - 150px'); 
+					@include calc('width', '100% - '+$profile_img); 
 						
 					.name{
 						*{
-						 	font-size: 35px;
+						 	font-size: 30px;
 							color: #000;
-							font-weight: 400;
+							font-weight: 500;
 						}
 					}
 
 					ul.contact_details{ 
 						padding-left: 0;
-						margin: 15px 0 0 0;
+						margin: 10px 0 0 0;
 						overflow: hidden;
 
 						li{
@@ -115,6 +117,7 @@ section.cv_builder_wrapper{
 				.cv_block{
 
 					.title{
+						margin-bottom: 10px;
 
 						h3{
 							font-weight: 400;
@@ -124,7 +127,101 @@ section.cv_builder_wrapper{
 						    padding-bottom: 5px;
 						}
 
+						a{
+							float: right;
+							font-size: $default_font_size - 1;
+
+						}
+
 					} 
+
+					.content{
+
+						.edu_{
+							overflow: hidden;
+							padding: 10px;
+							border-bottom: 1px #d5d5d5 solid;
+							cursor: pointer;
+							
+							&:last-child{
+								border: 0;
+							}
+
+							&:hover, &:focus{
+								background: #f7fff9;
+							}
+
+							span.edu_title{ 
+								font-size: $default_font_size + 4;
+								font-weight: 500;
+								margin-bottom: 3px;
+
+							}
+							span.edu_company_name{ 
+								font-size: $default_font_size;
+								font-weight: 300;
+								margin-bottom: 3px;
+								margin-right: 10px;
+							}
+
+							span.edu_location{
+								font-size: $default_font_size - 2;
+								font-weight: 300;
+								float: right;
+
+							}
+
+							.edu_desc{
+								width: 100%;
+								font-size: $default_font_size - 1;
+								font-weight: 300;
+								font-weight: 300;
+							    line-height: 17px;
+							    margin-top: 5px;
+							}
+						}
+
+						.exp_{
+							overflow: hidden;
+							padding: 10px 0;
+							border-bottom: 1px #d5d5d5 solid;
+							
+							&:last-child{
+								border: 0;
+							}
+
+
+							span.exp_title{ 
+								font-size: $default_font_size + 4;
+								font-weight: 500;
+								margin-bottom: 3px;
+								display: block;
+
+							}
+							span.exp_company_name{ 
+								font-size: $default_font_size;
+								font-weight: 300;
+								margin-bottom: 3px;
+								margin-right: 10px;
+							}
+
+							span.exp_company_location{
+								font-size: $default_font_size - 2;
+								font-weight: 300;
+								float: right;
+
+							} 
+
+							.exp_desc{
+								width: 100%;
+								font-size: $default_font_size - 1;
+								font-weight: 300;
+								font-weight: 300;
+							    line-height: 17px;
+							    margin-top: 5px;
+							}
+						}
+					}
 				}
 			}
 

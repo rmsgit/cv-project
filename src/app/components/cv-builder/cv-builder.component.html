@@ -4,15 +4,20 @@
 	</div> 
 </section>
 <section class="container-fluid cv_builder_wrapper" >
-	<div class="left_content">
-		 
+	<div class="left_content"> 
+	 
+		<app-edit-cv-header *ngIf="headerAct && active"></app-edit-cv-header> 
+
+		 <app-edit-education *ngIf="educationAct  && active"></app-edit-education>
 	</div>
 	<div class="right_content">
+	<!-- 	<button class="ui button" (click)="getData()">Get Data</button> -->
+
 		<div class="cv_layout">
-			<div class="header">
+			<div class="header" (click)="headerToggle()" >
 
 				<div class="user_img">
-					
+				 
 				</div>
 				<div class="user_details">
 					<div class="name">
@@ -20,19 +25,19 @@
 					</div>
 					<ul class="contact_details">
 						<li>
-							<i class="fa fa-map-marker icon" aria-hidden="true"></i> 
+							<i class="icon-location icon" aria-hidden="true"></i> 
 							{{UserData.address}}
 						</li>
 						<li>
-							<i class="fa fa-phone icon" aria-hidden="true"></i>
+							<i class="icon-phone icon" aria-hidden="true"></i>
 							{{UserData.phone}}
 						</li>
 						<li>
-							<i class="fa fa-mobile icon" aria-hidden="true"></i>
+							<i class="icon-mobile icon" aria-hidden="true"></i>
 							{{UserData.mobile}}
 						</li>
 						<li>
-							<i class="fa fa-envelope icon" aria-hidden="true"></i>
+							<i class="icon-envelope icon" aria-hidden="true"></i>
 							{{UserData.email}}
 						</li> 
 					</ul> 
@@ -40,7 +45,51 @@
 				<div class="clearfix"></div>	
 			</div>
 			<div class="body">
-				<div class="row">
+				 <div class="row">
+					<div class="col-md-6"> 
+						<div class="education cv_block"> 
+							<div class="title">
+								<h3>Education <a href="#">Add Education</a></h3>
+
+
+							</div>
+							<div class="content"> 
+								<div class="edu_"  *ngFor="let edu of UserData.education;  let i = index" [attr.data-index]="i" (click)="editEducation(i)" (click)="CollegeToggle()">
+									<span class="edu_title">{{  edu.college_name  }}</span> 
+									<span class="edu_location">  
+										<i class="icon-location icon"></i> {{ edu.college_city}}
+									</span>
+
+									<div class="edu_desc">
+										{{edu.description}}
+									</div>
+								</div> 
+							</div> 
+						</div>
+					</div>
+
+					<div class="col-md-6"> 
+						<div class="experience cv_block"> 
+							<div class="title">
+								<h3>Experience <a href="#">Add Experience</a></h3>
+							</div>
+							<div class="content"> 
+								<div class="exp_"  *ngFor="let exp of UserData.work_experience">
+									<span class="exp_title">{{exp.designation}}</span>
+									<span class="exp_company_name">{{exp.company_name}}</span>
+									<span class="exp_company_location">  
+										<i class="icon-location icon"></i> {{exp.location}}
+									</span> 
+									<div class="exp_desc">
+										 {{exp.description}}
+									</div>
+								</div> 
+							</div> 
+						</div>
+					</div> 
+				</div>
+			 
+				<!-- <div class="row">
 					<div class="col-md-6 education cv_block">
 						<div class="title">
 							<h3>Education</h3>
@@ -57,7 +106,7 @@
 							<div class="ck-work" (blur)="getDataWorkExperience()"></div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
