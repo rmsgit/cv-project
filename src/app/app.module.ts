@@ -41,6 +41,8 @@ import { JobModel } from './models/job.model';
 import { MainStoreService } from './store/main.store';
 import { JobseekerDashboardComponent } from './components/jobseeker-dashboard/jobseeker-dashboard.component';
 import { CvSearchComponent } from './components/cv-search/cv-search.component';
+import { EditCvHeaderComponent } from './components/cv-builder/edit-cv-header/edit-cv-header.component';
+import { EditEducationComponent } from './components/cv-builder/edit-education/edit-education.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDdAZk2xDplAJ2xSdIyJSF-jv2DUAFG0Fk",
@@ -66,7 +68,7 @@ var firebaseConfig = {
     JobsComponent,
     SingleJobComponent,
     SearchJobsComponent, 
-    PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent, JobseekerDashboardComponent, CvSearchComponent
+    PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent, JobseekerDashboardComponent, CvSearchComponent, EditCvHeaderComponent, EditEducationComponent
     
 
   ],
