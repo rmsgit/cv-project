@@ -1,0 +1,30 @@
+<h3>Skills</h3>
+
+<form action="" class="ui form">
+	<div class="field">
+		<label for="x">Skill Title</label>
+ 		<input type="text" name="x"  [(ngModel)]="UserSelectedSkillData.skill_name"  (ngModelChange)="changeDetails($event)" >
+ 	</div>
+
+ 	<div class="field">
+		<label for="skill_rating">Skill Rating</label>
+ 		<input type="number" name="skill_rating" [(ngModel)]="UserSelectedSkillData.skill_rating"  (ngModelChange)="changeDetails($event)"  >
+ 	</div>
+
+ 
+ 	<div class="ui checkbox">
+	  	<input type="checkbox" name="example" [(ngModel)]="UserSelectedSkillData.show_description"  (ngModelChange)="changeDetails($event)">
+	    <label>Show Description</label>
+	</div>
+ 
+
+ 	<div class="field">
+	    <label for="description">Description</label>
+	    <textarea name="description" [(ngModel)]="UserSelectedSkillData.description"  (ngModelChange)="changeDetails($event)" ></textarea>
+	</div>
+	
+	<a href="javascript:void(0)" (click)="removeSkills()">Remove {{UserSelectedSkillData.skill_name}} </a>
+	<button class="ui button" (click)="addSkills()">Add Skill</button>
+	 
+ 
+ </form>  

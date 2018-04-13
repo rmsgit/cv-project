@@ -1,0 +1,29 @@
+<h3>Experience</h3>
+
+<form action="" class="ui form">
+	<div class="field">
+		<label for="college_name">Company Name</label>
+ 		<input type="text" name="college_name"  [(ngModel)]="UserSelectedExperienceData.company_name"  (ngModelChange)="changeDetails($event)" >
+ 	</div>
+
+ 	<div class="field">
+		<label for="college_name">Company Location</label>
+ 		<input type="text" name="college_city" [(ngModel)]="UserSelectedExperienceData.location"  (ngModelChange)="changeDetails($event)"  >
+ 	</div>
+
+ 	<div class="field">
+		<label for="college_name">Your Designation</label>
+ 		<input type="text" name="designation" [(ngModel)]="UserSelectedExperienceData.designation"  (ngModelChange)="changeDetails($event)"  >
+ 	</div>
+
+ 	<div class="field">
+	    <label for="description">Description</label>
+	    <textarea name="description" [(ngModel)]="UserSelectedExperienceData.description"  (ngModelChange)="changeDetails($event)" ></textarea>
+	</div>
+	
+	<a href="javascript:void(0)" (click)="removeExperience()">Remove {{UserSelectedExperienceData.company_name}} </a>
+	<button class="ui button" (click)="addExperience()">Add Experience</button>
+
+	 
+ 
+ </form>  

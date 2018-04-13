@@ -25,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-add:before {
+  content: "\e907";
+}
+.icon-rubbish-bin:before {
+  content: "\e908";
+}
+.icon-medal:before {
+  content: "\e909";
+}
 .icon-upload:before {
   content: "\e900";
 }

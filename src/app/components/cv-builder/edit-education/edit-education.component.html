@@ -16,8 +16,9 @@
 	    <textarea name="description"  [(ngModel)]="UserSelectedEducationData.description" (ngModelChange)="changeDetails($event)" ></textarea>
 	</div>
 	
-
+	<a href="javascript:void(0)" (click)="removeCollege()">Remove {{UserSelectedEducationData.college_name}}</a>
+	<button class="ui button" (click)="addCollege()">Add Education</button>
 
 	 
  
- </form>
+ </form> 

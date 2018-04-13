@@ -25,7 +25,7 @@ export class EditEducationComponent implements OnInit {
 
   changeDetails(event){
  
- 	this.index = this.cv.UserSelectedEducationData.index;  
+ 	  this.index = this.cv.UserSelectedEducationData.index;  
   	this.cv.UserData.education[this.index].college_name = this.UserSelectedEducationData.college_name;
   	this.cv.UserData.education[this.index].description = this.UserSelectedEducationData.description;
   	this.cv.UserData.education[this.index].college_city = this.UserSelectedEducationData.college_city;
@@ -34,10 +34,17 @@ export class EditEducationComponent implements OnInit {
 
   
 
-  getData(){
+  getData(){ 
 
-  	
+  }
 
+
+  private addCollege() : void{
+    this.cv.addCollege();
+  }
+
+  private removeCollege() : void{
+    this.cv.removeCollege();
   }
 
 

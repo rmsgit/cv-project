@@ -1,6 +1,5 @@
 @import '../../app.component';
-
- 
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300,400,500,600,700,800|Montserrat:300,400,500,600,700,800,900|Oswald:300,400,500,600,700|Roboto+Slab:300,400,700');
 .cv_builder{ 
 	background: #fff;
 	position: fixed;
@@ -25,14 +24,73 @@
 	}  
 } 
 
+:host >>> .editable {
+	h3{
+		color: rgba(0,0,0,.87);
+		padding-bottom: 5px;
+		border-bottom: 1px solid;
+		text-align: center;
+	}
+
+	h1,h2,h3,p{
+		color: rgba(0,0,0,.87);
+		text-align: center; 
+	}
+
+	.block{
+		background: rgba(246, 246, 246, 0.27);
+    	padding: 10px;
+    	min-height: 150px;
+    	margin-top: 30px;
+
+    	h4{
+    		color: rgba(0,0,0,0.87);
+    	}
+
+    	.content{
+    		color: rgba(0,0,0,0.87);
+			
+    		ul{
+    			padding-left: 0;
+    			margin-top: 10px;
+				border-top: 1px #dfdfdf solid;
+
+
+    			li{
+    				list-style: none;
+					font-size: 20px;
+					font-weight: 600;
+					padding: 5px;
+					border-bottom: 1px #dfdfdf solid;
+					cursor: pointer;
+
+					&:hover{
+						background: rgba(255, 255, 255, 0.32);
+					}
+    			}
+    		}
+    	}
+	}
+
+	a{
+		color: rgba(0,0,0,.87);
+		margin-bottom: 10px;
+		display: block;
+
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
+
 .c-inline-editor{
-				display: none;
-			}
+	display: none;
+}
 section.cv_builder_wrapper{
 	@include calc('height', '100% - 73px');
 	padding: 0;
 	display: flex;
-	padding-top: 73px;
+	padding-top: 73px; 
 
 	.left_content{
 		width: 250px;
@@ -41,6 +99,21 @@ section.cv_builder_wrapper{
 		float: left;
 		padding: 15px;
 		position: fixed;
+		overflow-y: scroll;
+
+		.editable{ 
+			position: absolute;
+			width: 100%;
+			left: -250px;
+			padding: 0 15px;
+			transition: all 0.3s ease;
+			height: 100%;
+			background: inherit;
+  
+			&.active{ 
+				left: 0;
+			}
+		}
 	}
 
 	.right_content{
@@ -49,22 +122,32 @@ section.cv_builder_wrapper{
 		float: left;
 		margin-left: 250px;
 
+
 		.cv_layout{
+
+			&.default 		{ font-family: inherit;}
+			&.oswald 		{ font-family: 'Oswald',sans-serif;}
+			&.montserrat 	{ font-family: 'Montserrat',sans-serif;}
+			&.roboto_slab 	{ font-family: 'Roboto Slab', serif;}
+			&.exo 	{ font-family: 'Exo 2', sans-serif; }
+
+
 			display: block;
 			width: 950px;
-			height: auto;
+			height: 1329px; 
 			border: 1px #cacaca solid;
 			margin: 80px auto;
-			padding: 30px;
+			padding: 30px; 
 			-webkit-box-shadow: 0px 2px 9px 0px rgba(50, 50, 50, 0.12);
 			-moz-box-shadow:    0px 2px 9px 0px rgba(50, 50, 50, 0.12);
 			box-shadow:         0px 2px 9px 0px rgba(50, 50, 50, 0.12);
-			background: #fff;
+			background: #fff;  
 
 			.header{
 				padding: 20px;
 				border: 1px #cacaca solid;
-				margin-bottom: 30px;
+				margin-bottom: 30px; 
+				font-family: inherit;
 
 				$profile_img: 120px;
 		
@@ -83,12 +166,17 @@ section.cv_builder_wrapper{
 					margin-top: 10px;
 					float: left;
 					@include calc('width', '100% - '+$profile_img); 
+					color: inherit;
+					font-family: inherit;
 						
 					.name{
+						color: inherit;
+						font-family: inherit;
 						*{
 						 	font-size: 30px;
-							color: #000;
+							color: inherit;
 							font-weight: 500;
+							font-family: inherit;
 						}
 					}
 
@@ -114,17 +202,37 @@ section.cv_builder_wrapper{
 			}
 
 			.body{
+				font-family: inherit;
+
+				.row{
+					font-family: inherit;
+
+					.col-md-6{
+						font-family: inherit;
+
+					}
+				}
+
 				.cv_block{
+					font-family: inherit;
+					margin-top: 40px;
+					min-height: 250px;
+
+					&:first-child{
+						margin-top: 0;
+					}
 
 					.title{
 						margin-bottom: 10px;
+						font-family: inherit;
 
 						h3{
-							font-weight: 400;
+							font-weight: 500;
 						    border-bottom: 4px #6a6969 solid;
 						    font-size: 24px;
 						    margin-bottom: 5px;
 						    padding-bottom: 5px;
+						    font-family: inherit;
 						}
 
 						a{
@@ -136,21 +244,30 @@ section.cv_builder_wrapper{
 					} 
 
 					.content{
+						font-family: inherit;
 
-						.edu_{
-							overflow: hidden;
-							padding: 10px;
-							border-bottom: 1px #d5d5d5 solid;
+						.blk{
 							cursor: pointer;
-							
-							&:last-child{
-								border: 0;
+							font-family: inherit;
+
+							span:first-child{
+								font-family: inherit;
 							}
 
 							&:hover, &:focus{
 								background: #f7fff9;
 							}
+						}
 
+						.edu_{
+							overflow: hidden;
+							padding: 10px;
+							border-bottom: 1px #d5d5d5 solid; 
+							
+							&:last-child{
+								border: 0;
+							}
+ 
 							span.edu_title{ 
 								font-size: $default_font_size + 4;
 								font-weight: 500;
@@ -215,10 +332,86 @@ section.cv_builder_wrapper{
 							.exp_desc{
 								width: 100%;
 								font-size: $default_font_size - 1;
-								font-weight: 300;
-								font-weight: 300;
+								font-weight: 300; 
 							    line-height: 17px;
 							    margin-top: 5px;
+							}
+						}
+
+						.skills_{
+							overflow: hidden;
+							padding: 5px;
+
+							span.skill_name{
+								float: left;
+							}
+
+							span.skill_rating{
+								float: right;
+							}
+
+							span.skill_desc{
+								width: 100%;
+								display: block;
+								font-size: $default_font_size - 1;
+								font-weight: 300; 
+							    line-height: 17px; 
+							}
+						}
+
+						.qualifications_{
+							overflow: hidden;
+							padding: 5px;
+
+							span.q_name{ 
+								width: 100%;
+								display: block;
+								font-size: $default_font_size + 3;
+								font-weight: 500;
+
+								i{
+									vertical-align: middle;
+								    margin-right: 7px;
+								    font-size: 22px;
+								}
+							}
+
+							span.q_desc{
+								width: 100%;
+								display: block;
+								font-size: $default_font_size - 1;
+								font-weight: 300; 
+							    line-height: 17px; 
+							    padding-left: 30px;
+							}
+						}
+
+
+						.portfolio_{
+							overflow: hidden;
+							padding: 10px 0;
+
+							span.p_title{
+								font-size: $default_font_size + 4;
+								font-weight: 500;
+								width: 100%;
+								display: block;
+								margin-bottom: 3px;
+							}
+
+							span.p_subtitle{
+								width: 100%;
+								display: block;
+								font-size: $default_font_size;
+								font-weight: 400;
+								margin-bottom: 3px; 
+							}
+
+							.p_desc{
+								width: 100%;
+								display: block;
+								font-size: $default_font_size - 1;
+								font-weight: 300; 
 							}
 						}
 					}
