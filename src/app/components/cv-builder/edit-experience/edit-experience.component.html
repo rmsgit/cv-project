@@ -21,7 +21,7 @@
 	    <textarea name="description" [(ngModel)]="UserSelectedExperienceData.description"  (ngModelChange)="changeDetails($event)" ></textarea>
 	</div>
 	
-	<a href="javascript:void(0)" (click)="removeExperience()">Remove {{UserSelectedExperienceData.company_name}} </a>
+	<a href="javascript:void(0)" (click)="removeExperience()"><i class="icon-rubbish-bin"></i> Remove {{UserSelectedExperienceData.company_name}} </a>
 	<button class="ui button" (click)="addExperience()">Add Experience</button>
 
 	 

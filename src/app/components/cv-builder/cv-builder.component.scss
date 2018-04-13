@@ -98,8 +98,12 @@
 		display: block;
 
 		&:hover{
-			text-decoration: underline;
+			color: rgba(247, 26, 26, 0.87);
 		}
+	}
+
+	button{
+		width: 100%;
 	}
 }
 
@@ -142,6 +146,9 @@ section.cv_builder_wrapper{
 		float: left;
 		margin-left: 250px;
 
+		.center_layout 	{ display: block; width: 950px; margin: auto; 
+			button 		{ margin: 30px 0; }
+		}
 
 		.cv_layout{
 
@@ -157,6 +164,7 @@ section.cv_builder_wrapper{
 			height: 1329px; 
 			border: 1px #cacaca solid;
 			margin: 80px auto;
+			margin-bottom: 30px;
 			padding: 30px; 
 			-webkit-box-shadow: 0px 2px 9px 0px rgba(50, 50, 50, 0.12);
 			-moz-box-shadow:    0px 2px 9px 0px rgba(50, 50, 50, 0.12);

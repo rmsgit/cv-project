@@ -15,9 +15,9 @@
 
 	</div>
 	<div class="right_content">
-	<!-- 	<button class="ui button" (click)="getData()">Get Data</button> -->
- 
+		
 		<div class="cv_layout {{UserData.settings.font_family}}"  [ngStyle]="{'color': UserData.settings.color_theme.secondary }" >
+
 			<div class="header" (click)="headerToggle()" >
 
 				<div class="user_img">
@@ -143,5 +143,9 @@
 		 
 			</div>
 		</div>
+		<div class="center_layout">
+			<button class="ui button" (click)="getData()">Generate CV</button>
+		</div>
+ 		
 	</div>
 </section>
