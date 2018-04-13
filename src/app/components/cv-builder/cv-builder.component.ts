@@ -121,34 +121,75 @@ export class CvBuilderComponent implements OnInit {
             description: 'Add a description about a company you worked. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus praesentium nulla.',
             show_description: false,
         }], 
-        settings:[{
+        settings:{
           font_family: 'inherit',
-          color_theme: 'blue'
-        }]
+
+          color_theme:  {
+            primary: '#008CFF',
+            secondary: '#000000',
+            id: 0,
+          }
+
+        }
     };
 
 
     fontFamily : any = [
       {
         name: 'Default',
-        class: 'default'
+        class: 'default',
       },
       {
         name: 'Oswald',
-        class: 'oswald'
+        class: 'oswald',
       },
       {
         name: 'Montserrat',
-        class: 'montserrat'
+        class: 'montserrat',
       },
       {
         name: 'Roboto Slab',
-        class: 'roboto_slab'
+        class: 'roboto_slab',
       },
       {
         name: 'Exo 2',
-        class: 'exo'
+        class: 'exo',
       }
+    ];
+
+    Colors : any = [
+      {
+        primary: '#008CFF',
+        secondary: '#000000',
+      },
+
+      {
+        primary: '#00B400',
+        secondary: '#000000',
+      },
+
+      {
+        primary: '#00AC56',
+        secondary: '#320064',
+      },
+
+      {
+        primary: '#00B8FF',
+        secondary: '#320064',
+      },
+
+      {
+        primary: '#C41230',
+        secondary: '#000000',
+      },
+      {
+        primary: '#DC006A',
+        secondary: '#40006F',
+      },
+      {
+        primary: '#FF6E00',
+        secondary: '#002878',
+      },
     ];
 
 
@@ -203,6 +244,8 @@ export class CvBuilderComponent implements OnInit {
 
   ngOnInit() {
  	 
+
+    console.log(this.UserData)
  
   	
   }

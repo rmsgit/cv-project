@@ -16,32 +16,32 @@
 	</div>
 	<div class="right_content">
 	<!-- 	<button class="ui button" (click)="getData()">Get Data</button> -->
-
-		<div class="cv_layout {{UserData.settings.font_family}}" >
+ 
+		<div class="cv_layout {{UserData.settings.font_family}}"  [ngStyle]="{'color': UserData.settings.color_theme.secondary }" >
 			<div class="header" (click)="headerToggle()" >
 
 				<div class="user_img">
 				 
 				</div>
 				<div class="user_details">
-					<div class="name">
+					<div class="name" [ngStyle]="{'color': UserData.settings.color_theme.secondary }">
 					 	<h2>{{UserData.name}}</h2>
 					</div>
 					<ul class="contact_details">
 						<li>
-							<i class="icon-location icon" aria-hidden="true"></i> 
+							<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-location icon" aria-hidden="true"></i> 
 							{{UserData.address}}
 						</li>
 						<li>
-							<i class="icon-phone icon" aria-hidden="true"></i>
+							<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-phone icon" aria-hidden="true"></i>
 							{{UserData.phone}}
 						</li>
 						<li>
-							<i class="icon-mobile icon" aria-hidden="true"></i>
+							<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-mobile icon" aria-hidden="true"></i>
 							{{UserData.mobile}}
 						</li>
 						<li>
-							<i class="icon-envelope icon" aria-hidden="true"></i>
+							<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-envelope icon" aria-hidden="true"></i>
 							{{UserData.email}}
 						</li> 
 					</ul> 
@@ -52,7 +52,7 @@
 				 <div class="row">
 					<div class="col-md-6"> 
 						<div class="education cv_block"> 
-							<div class="title">
+							<div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
 								<h3>Education <a href="javascript:void(0)" (click)="addCollege()">Add Education</a></h3>
 
 
@@ -61,7 +61,7 @@
 								<div class="edu_ blk"  *ngFor="let edu of UserData.education;  let i = index" [attr.data-index]="i" (click)="editCollege(i)"  >
 									<span class="edu_title">{{  edu.college_name  }}</span> 
 									<span class="edu_location">  
-										<i class="icon-location icon"></i> {{ edu.college_city}}
+										<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-location icon"></i> {{ edu.college_city}}
 									</span>
 
 									<div class="edu_desc">
@@ -72,12 +72,12 @@
 						</div>
 
 						<div class="qualifications cv_block"> 
-							<div class="title">
+							<div class="title"  [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
 								<h3>Qualifications <a href="javascript:void(0)" (click)="addQualifications()">Add Qualifications</a></h3> 
 							</div>
 							<div class="content"> 
 								<div class="qualifications_ blk" *ngFor="let q of UserData.qualifications;  let i = index" (click)="editQualifications(i)" >
-									<span class="q_name"><i class="icon-medal"></i>{{q.qualifications}}</span> 
+									<span class="q_name"><i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-medal"></i>{{q.qualifications}}</span> 
 									<span class="q_desc" *ngIf="q.show_description"> {{q.description}} </span>
 
 								</div> 
@@ -85,14 +85,14 @@
 						</div>
 
 						<div class="skills cv_block"> 
-							<div class="title">
+							<div class="title"  [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
 								<h3>Skills <a href="javascript:void(0)" (click)="addSkills()">Add Skills</a></h3> 
 							</div>
 							<div class="content"> 
 								<div class="skills_ blk" *ngFor="let skills of UserData.skills;  let i = index" (click)="editSkills(i)" >
 									<div class="top">
 										<span class="skill_name">{{skills.skill_name}}</span>
-										<span class="skill_rating">{{skills.skill_rating}}/10</span>
+										<span class="skill_rating" [ngStyle]="{'color': UserData.settings.color_theme.primary }">{{skills.skill_rating}}/10</span>
 										<div class="clearfix"></div>
 									</div> 
 									<span class="skill_desc" *ngIf="skills.show_description"> {{skills.description}} </span>
@@ -105,7 +105,7 @@
 
 					<div class="col-md-6"> 
 						<div class="experience cv_block"> 
-							<div class="title">
+							<div class="title"  [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
 								<h3>Experience <a  href="javascript:void(0)" (click)="addExperience()">Add Experience</a></h3>
 							</div>
 							<div class="content"> 
@@ -113,7 +113,7 @@
 									<span class="exp_title">{{exp.designation}}</span>
 									<span class="exp_company_name">{{exp.company_name}}</span>
 									<span class="exp_company_location">  
-										<i class="icon-location icon"></i> {{exp.location}}
+										<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-location icon"></i> {{exp.location}}
 									</span> 
 									<div class="exp_desc">
 										 {{exp.description}}
@@ -123,7 +123,7 @@
 						</div>
 
 						<div class="portfolio cv_block"> 
-							<div class="title">
+							<div class="title"  [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
 								<h3>Portfolio <a  href="javascript:void(0)" (click)="addPortfolio()">Add Portfolio</a></h3>
 							</div>
 							<div class="content"> 

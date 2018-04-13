@@ -9,6 +9,8 @@ import { CvBuilderComponent } from "../cv-builder.component";
 export class EditSettingsComponent implements OnInit {
   
   fontFamily : any =  this.cv.fontFamily; 
+  Colors : any =  this.cv.Colors; 
+  User : any =  this.cv.UserData; 
 
   constructor(private cv: CvBuilderComponent) { }
 
@@ -16,8 +18,14 @@ export class EditSettingsComponent implements OnInit {
   }
 
   selectFont(index){
-  	this.cv.UserData.settings.font_family = this.cv.fontFamily[index].class;
-  	console.log(this.cv.UserData.settings.font_family);
+  	this.cv.UserData.settings.font_family = this.cv.fontFamily[index].class; 
+  }
+
+  selectTheme(index){
+  	this.cv.UserData.settings.color_theme.primary = this.cv.Colors[index].primary; 
+  	this.cv.UserData.settings.color_theme.secondary = this.cv.Colors[index].secondary; 
+  	this.cv.UserData.settings.color_theme.id = index; 
+
   }
 
 }

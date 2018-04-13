@@ -69,6 +69,26 @@
 					}
     			}
     		}
+
+    		.colors{
+    			width: 52px;
+    			height: 20px;
+    			margin-top: 10px;
+    			float: left;
+    			margin-right: 10px;
+    			cursor: pointer;
+    			border: 2px transparent solid;
+
+    			&.selected{
+					border: 2px solid; 
+    			}
+
+    			span{
+    				width: 24px;
+    				height: 100%;
+    				float: left;
+    			}
+    		}
     	}
 	}
 
@@ -142,12 +162,22 @@ section.cv_builder_wrapper{
 			-moz-box-shadow:    0px 2px 9px 0px rgba(50, 50, 50, 0.12);
 			box-shadow:         0px 2px 9px 0px rgba(50, 50, 50, 0.12);
 			background: #fff;  
+			color: #000;
+
+			i{
+				color: inherit;
+			}
+
+			h3{
+				border-color: inherit;
+			}
 
 			.header{
 				padding: 20px;
 				border: 1px #cacaca solid;
 				margin-bottom: 30px; 
 				font-family: inherit;
+				color: inherit;
 
 				$profile_img: 120px;
 		
@@ -184,11 +214,13 @@ section.cv_builder_wrapper{
 						padding-left: 0;
 						margin: 10px 0 0 0;
 						overflow: hidden;
+						color: inherit;
 
 						li{
 							list-style-type: none; 
 							width: 33.33%;
 							float: left;
+							color: inherit; 
 
 							&:first-child{
 								width: 100%;
@@ -203,20 +235,24 @@ section.cv_builder_wrapper{
 
 			.body{
 				font-family: inherit;
+				color: inherit;
 
 				.row{
 					font-family: inherit;
+					color: inherit;
 
 					.col-md-6{
 						font-family: inherit;
+						color: inherit;
 
 					}
 				}
 
 				.cv_block{
 					font-family: inherit;
+					color: inherit;
 					margin-top: 40px;
-					min-height: 250px;
+					min-height: 250px; 
 
 					&:first-child{
 						margin-top: 0;
@@ -225,6 +261,7 @@ section.cv_builder_wrapper{
 					.title{
 						margin-bottom: 10px;
 						font-family: inherit;
+						color: inherit;
 
 						h3{
 							font-weight: 500;
@@ -233,6 +270,8 @@ section.cv_builder_wrapper{
 						    margin-bottom: 5px;
 						    padding-bottom: 5px;
 						    font-family: inherit;
+						    color: inherit;
+						    border-color: inherit;
 						}
 
 						a{
@@ -245,10 +284,16 @@ section.cv_builder_wrapper{
 
 					.content{
 						font-family: inherit;
+						color: inherit;
 
 						.blk{
 							cursor: pointer;
 							font-family: inherit;
+							color: inherit;
+
+							*{
+								color: inherit;
+							}
 
 							span:first-child{
 								font-family: inherit;
