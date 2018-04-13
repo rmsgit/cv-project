@@ -1,0 +1,33 @@
+<h2>Welcome to CV Builder</h2>
+<p>Choose your settings and customize your cv</p>
+<h3>Settings</h3>
+
+ <div class="block">
+ 	<div class="title">
+ 		<h4>Color Theme</h4>
+ 	</div>
+	
+	<div class="content">
+		<div *ngFor="let c of Colors; let i = index" class="colors"  (click)="selectTheme(i);" [ngClass]="{'selected': i == User.settings.color_theme.id }">
+	 		<span class="primary" [ngStyle]="{'background-color': c.primary }" ></span>
+	 		<span class="secondary" [ngStyle]="{'background-color': c.secondary }"></span>
+	 	</div>
+ 
+	</div> 
+
+ </div>  
+
+
+ <div class="block">
+ 	<div class="title">
+ 		<h4>Font</h4>
+ 	</div>
+
+ 	<div class="content">
+ 		<ul>
+ 			<li *ngFor="let ff of fontFamily;  let i = index" (click)="selectFont(i);" class="{{ff.class}}" >{{ff.name}}</li> 
+ 		</ul>
+
+ 	</div>
+
+ </div>  

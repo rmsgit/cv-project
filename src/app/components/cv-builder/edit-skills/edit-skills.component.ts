@@ -1,0 +1,45 @@
+import { Component, OnInit } from '@angular/core';
+import { CvBuilderComponent } from "../cv-builder.component";
+
+
+@Component({
+  selector: 'app-edit-skills',
+  templateUrl: './edit-skills.component.html',
+  styleUrls: ['./edit-skills.component.css']
+})
+export class EditSkillsComponent implements OnInit {
+
+  	index: number =  this.cv.UserSelectedSkillData.index;
+  	UserSelectedSkillData : any =  this.cv.UserSelectedSkillData;
+
+  	constructor(private cv: CvBuilderComponent) { }
+
+  ngOnInit() {
+  	console.log(this.UserSelectedSkillData)
+  }
+
+
+  changeDetails(event) : void{
+ 
+ 	this.index = this.cv.UserSelectedSkillData.index;  
+  	this.cv.UserData.skills[this.index].skill_name = this.UserSelectedSkillData.skill_name;
+  	this.cv.UserData.skills[this.index].skill_rating = this.UserSelectedSkillData.skill_rating;
+  	this.cv.UserData.skills[this.index].description = this.UserSelectedSkillData.description;
+  	this.cv.UserData.skills[this.index].show_description = this.UserSelectedSkillData.show_description;
+  	
+  	//alert(this.UserSelectedSkillData.show_description); 
+  	//this.cv.UserData.shills[this.index].description = this.UserSelectedSkillData.description;
+  
+  }
+
+
+   private addSkills() : void{
+    this.cv.addSkills();
+  }
+
+  private removeSkills() : void{
+    this.cv.removeSkills();
+  }
+
+
+}
