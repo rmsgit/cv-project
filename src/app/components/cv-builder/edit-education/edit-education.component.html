@@ -1,0 +1,24 @@
+<h3>Education</h3>
+
+<form action="" class="ui form">
+	<div class="field">
+		<label for="college_name">College Name</label>
+ 		<input type="text" name="college_name" [(ngModel)]="UserSelectedEducationData.college_name" (ngModelChange)="changeDetails($event)" >
+ 	</div>
+
+ 	<div class="field">
+		<label for="college_name">City</label>
+ 		<input type="text" name="college_city" [(ngModel)]="UserSelectedEducationData.college_city" (ngModelChange)="changeDetails($event)" >
+ 	</div>
+
+ 	<div class="field">
+	    <label for="description">Description</label>
+	    <textarea name="description"  [(ngModel)]="UserSelectedEducationData.description" (ngModelChange)="changeDetails($event)" ></textarea>
+	</div>
+	
+	<a href="javascript:void(0)" (click)="removeCollege()"><i class="icon-rubbish-bin"></i> Remove {{UserSelectedEducationData.college_name}}</a>
+	<button class="ui button" (click)="addCollege()">Add Education</button>
+
+	 
+ 
+ </form> 

@@ -1,0 +1,22 @@
+<h3>Qualifications</h3>
+
+<form action="" class="ui form">
+	<div class="field">
+		<label for="qualifications">Qualifications</label>
+ 		<input type="text" name="qualifications"  [(ngModel)]="UserSelectedQualificationsData.qualifications"  (ngModelChange)="changeDetails($event)" >
+ 	</div> 
+ 	<div class="ui checkbox">
+	  	<input type="checkbox" name="example" [(ngModel)]="UserSelectedQualificationsData.show_description"  (ngModelChange)="changeDetails($event)">
+	    <label>Show Description</label>
+	</div>
+ 
+
+ 	<div class="field">
+	    <label for="description">Description</label>
+	    <textarea name="description" [(ngModel)]="UserSelectedQualificationsData.description"  (ngModelChange)="changeDetails($event)" ></textarea>
+	</div>
+	
+	<a href="javascript:void(0)" (click)="removeQualifications()"><i class="icon-rubbish-bin"></i> Remove {{UserSelectedQualificationsData.qualifications}} </a>
+	<button class="ui button" (click)="addQualifications()">Add Qualifications</button>
+	 
+ </form>  
