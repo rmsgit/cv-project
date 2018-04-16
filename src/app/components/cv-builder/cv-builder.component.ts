@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import ClassicEditor from '@ckeditor/ckeditor5-build-inline';
+import { Component, OnInit, AfterViewInit  } from '@angular/core';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
  
 
 @Component({
@@ -7,7 +7,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-inline';
   templateUrl: './cv-builder.component.html',
   styleUrls: ['./cv-builder.component.css']
 })
-export class CvBuilderComponent implements OnInit {
+export class CvBuilderComponent implements OnInit, AfterViewInit {
 
 	education: any; work_experience: any;
 
@@ -29,28 +29,29 @@ export class CvBuilderComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+	
+  	// ClassicEditor
+	//     .create( document.querySelector( '#ck-education' ) ) 
+	//     .then( education => { 
+	//         this.education = education;
+	//     } )
+	//     .catch( error => {
+	//         console.error( error );
+	//     } ); 
 
-  	ClassicEditor
-	    .create( document.querySelector( '.ck-education' ) ) 
-	    .then( education => { 
-	        this.education = education;
-	    } )
-	    .catch( error => {
-	        console.error( error );
-	    } ); 
 
-
-	 ClassicEditor 
-	    .create( document.querySelector( '.ck-work' ) )
-	    .then( work_experience => {  
-	        this.work_experience = work_experience;
-	    } )
-	    .catch( error => {
-	        console.error( error );
-	    } ); 
+	//  ClassicEditor 
+	//     .create( document.querySelector( '.ck-work' ) )
+	//     .then( work_experience => {  
+	//         this.work_experience = work_experience;
+	//     } )
+	//     .catch( error => {
+	//         console.error( error );
+	//     } ); 
   	
   }
+  ngOnInit(){}
 
   getDataEducation(){ 
   	this.UserData.education = this.education.getData()

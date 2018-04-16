@@ -8,7 +8,7 @@
     <div class="container inner">
         <div class="row wrapper">
             <div class="title">
-                <h2>Hello <span>{{authStore.auth.name}}</span></h2>
+                <h2>Hello <span *ngIf="authStore">{{authStore.auth.name}}</span></h2>
                 <p>From your account dashboard you can view and edit your resume, View applied jobs, <br/>recommended jobs and edit your account details.</p>
                 <div class="action_btn">
                     <button class="ui button">Account Settings</button>
@@ -43,7 +43,7 @@
                                         <th>Date Applied</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody *ngIf="applyJoblist">
                                     <tr *ngFor="let job of applyJoblist" [routerLink]="'/jobs/view-job/'+job.job_id">
                                         <td>{{job.title}}</td>
                                         <td>{{job.date}}</td>

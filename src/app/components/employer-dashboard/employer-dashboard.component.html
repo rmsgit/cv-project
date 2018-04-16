@@ -42,13 +42,13 @@
                             <td>{{job.meta.date}}</td>
                             <td>{{job.close_date}}</td>
                             <td>
-                                <Button class="ui button">Show ({{applyLength[job.id]}} )</Button>
+                                <Button [routerLink]="'/search-cv/'+job.id" class="ui button">Show ({{applyLength[job.id]}} )</Button>
                             </td>
                             <td>
                                 <a href="#" class="action_btns">
                                     <i class="fa fa-pencil icon" aria-hidden="true"></i> Edit Job
                                 </a>
-                                <a href="#" class="action_btns">
+                                <a (click)="delete(job.id)" class="action_btns">
                                     <i class="fa fa-pencil icon" aria-hidden="true"></i> Delete Job
                                 </a>
                             </td>

@@ -1,64 +1,60 @@
- <section class="container-fluid cv_builder">
- 	<div class="container">
-		<app-header></app-header>
-	</div> 
+<section class="container-fluid cv_builder">
+    <div class="container">
+        <app-header></app-header>
+    </div>
 </section>
-<section class="container-fluid cv_builder_wrapper" >
-	<div class="left_content">
-		 
-	</div>
-	<div class="right_content">
-		<div class="cv_layout">
-			<div class="header">
+<section class="container-fluid cv_builder_wrapper">
+    <div class="left_content">
 
-				<div class="user_img">
-					
-				</div>
-				<div class="user_details">
-					<div class="name">
-					 	<h2>{{UserData.name}}</h2>
-					</div>
-					<ul class="contact_details">
-						<li>
-							<i class="fa fa-map-marker icon" aria-hidden="true"></i> 
-							{{UserData.address}}
-						</li>
-						<li>
-							<i class="fa fa-phone icon" aria-hidden="true"></i>
-							{{UserData.phone}}
-						</li>
-						<li>
-							<i class="fa fa-mobile icon" aria-hidden="true"></i>
-							{{UserData.mobile}}
-						</li>
-						<li>
-							<i class="fa fa-envelope icon" aria-hidden="true"></i>
-							{{UserData.email}}
-						</li> 
-					</ul> 
-				</div> 
-				<div class="clearfix"></div>	
-			</div>
-			<div class="body">
-				<div class="row">
-					<div class="col-md-6 education cv_block">
-						<div class="title">
-							<h3>Education</h3>
-						</div>
-						<div class="content"> 
-							<div class="ck-education" (blur)="getDataEducation()"></div>
-						</div>  
-					</div>
-					<div class="col-md-6 cv_block">
-						<div class="title">
-							<h3>Work Experience</h3>
-						</div>
-						<div class="content">
-							<div class="ck-work" (blur)="getDataWorkExperience()"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    </div>
+    <div class="right_content">
+        <div class="cv_layout">
+            <div class="header">
+
+                <div class="user_img">
+
+                </div>
+                <div class="user_details">
+                    <div class="name">
+                        <h2>{{UserData.name}}</h2>
+                    </div>
+                    <ul class="contact_details">
+                        <li>
+                            <i class="fa fa-map-marker icon" aria-hidden="true"></i> {{UserData.address}}
+                        </li>
+                        <li>
+                            <i class="fa fa-phone icon" aria-hidden="true"></i> {{UserData.phone}}
+                        </li>
+                        <li>
+                            <i class="fa fa-mobile icon" aria-hidden="true"></i> {{UserData.mobile}}
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope icon" aria-hidden="true"></i> {{UserData.email}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="body">
+                <div class="row">
+                    <div class="col-md-6 education cv_block">
+                        <div class="title">
+                            <h3>Education</h3>
+                        </div>
+                        <div class="content">
+                            <div id="ck-education" (blur)="getDataEducation()"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 cv_block">
+                        <div class="title">
+                            <h3>Work Experience</h3>
+                        </div>
+                        <div class="content">
+                            <div class="ck-work" (blur)="getDataWorkExperience()"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
