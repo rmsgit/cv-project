@@ -30,6 +30,17 @@
 		padding-bottom: 5px;
 		border-bottom: 1px solid;
 		text-align: center;
+
+		i{
+			position: absolute;
+		    left: 12px;
+		    top: 2px;
+		    cursor: pointer;
+
+		    &:hover{
+		    	color: #Fff;
+		    }
+		}
 	}
 
 	h1,h2,h3,p{
@@ -42,6 +53,10 @@
     	padding: 10px;
     	min-height: 150px;
     	margin-top: 30px;
+
+    	&.last{
+    		margin-bottom: 120px;
+    	}
 
     	h4{
     		color: rgba(0,0,0,0.87);
@@ -156,7 +171,7 @@ section.cv_builder_wrapper{
 			&.oswald 		{ font-family: 'Oswald',sans-serif;}
 			&.montserrat 	{ font-family: 'Montserrat',sans-serif;}
 			&.roboto_slab 	{ font-family: 'Roboto Slab', serif;}
-			&.exo 	{ font-family: 'Exo 2', sans-serif; }
+			&.exo 			{ font-family: 'Exo 2', sans-serif; }
 
 
 			display: block;
@@ -172,6 +187,7 @@ section.cv_builder_wrapper{
 			background: #fff;  
 			color: #000;
 
+
 			i{
 				color: inherit;
 			}
@@ -180,9 +196,66 @@ section.cv_builder_wrapper{
 				border-color: inherit;
 			}
 
+			&.temp1{
+				.header{ 
+					border: 1px #cacaca solid;
+				}
+
+				.body{
+
+					.title{ 
+
+						h3{ 
+						    border-bottom: 4px #6a6969 solid;
+						}
+					}
+
+					.content{
+
+						.edu_, .exp_ {
+							border-bottom: 1px #d5d5d5 solid; 
+						}
+
+					}
+
+				}
+			}
+			&.temp2{
+			 	background-image: url(../../../assets/dots.svg); 
+			 	
+			 	.header{
+			 		.user_details{
+			 			padding-left: 0;
+			 		}
+
+			 		.user_img{
+			 			float: right;
+			 		}
+			 	}
+
+			 	.body{
+
+					.content{
+
+						.edu_, .exp_ {
+
+							span.edu_location, span.exp_company_location{
+								float: none !important;
+
+								i{
+									margin-left: 5px;
+								}
+							}
+						}
+
+					}
+
+				}
+				
+			}
+
 			.header{
 				padding: 20px;
-				border: 1px #cacaca solid;
 				margin-bottom: 30px; 
 				font-family: inherit;
 				color: inherit;
@@ -272,8 +345,7 @@ section.cv_builder_wrapper{
 						color: inherit;
 
 						h3{
-							font-weight: 500;
-						    border-bottom: 4px #6a6969 solid;
+							font-weight: 500; 
 						    font-size: 24px;
 						    margin-bottom: 5px;
 						    padding-bottom: 5px;
@@ -314,8 +386,7 @@ section.cv_builder_wrapper{
 
 						.edu_{
 							overflow: hidden;
-							padding: 10px;
-							border-bottom: 1px #d5d5d5 solid; 
+							padding: 10px; 
 							
 							&:last-child{
 								border: 0;
@@ -354,7 +425,6 @@ section.cv_builder_wrapper{
 						.exp_{
 							overflow: hidden;
 							padding: 10px 0;
-							border-bottom: 1px #d5d5d5 solid;
 							
 							&:last-child{
 								border: 0;

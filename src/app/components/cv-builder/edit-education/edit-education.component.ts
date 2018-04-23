@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import * as data from  "../../../models/cv.model"; 
 import { CvBuilderComponent } from "../cv-builder.component";
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   selector: 'app-edit-education',
@@ -48,6 +50,10 @@ export class EditEducationComponent implements OnInit {
   }
 
 
+  home(){
+     $('.editable').removeClass('active');
+     $('app-edit-settings').addClass('active');
+  }
 
 
 

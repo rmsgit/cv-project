@@ -31,3 +31,17 @@
  	</div>
 
  </div>  
+
+  <div class="block last">
+ 	<div class="title">
+ 		<h4>Template  </h4>
+ 	</div>
+
+ 	<div class="content">
+ 		<ul>
+ 			<li *ngFor="let tmpl of template;  let i = index" (click)="selectTemplate(i);" >{{tmpl.name}}</li> 
+ 		</ul>
+
+ 	</div>
+
+ </div> 
