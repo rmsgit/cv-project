@@ -22,7 +22,7 @@ export class CvBuilderComponent implements OnInit {
         address: '123 Street No, City, Province, Country', 
         phone: '(+000) 12 345 6789',
         mobile: '(+000) 12 345 6789',
-        email: 'myemailaddress@email.com',
+        email: 'myemailaddress@email.com', 
         education: [{
             college_name: 'College1',
             college_city: 'City1',
@@ -123,6 +123,7 @@ export class CvBuilderComponent implements OnInit {
         }], 
         settings:{
           font_family: 'inherit',
+          template: 'temp2',
 
           color_theme:  {
             primary: '#008CFF',
@@ -189,6 +190,21 @@ export class CvBuilderComponent implements OnInit {
       {
         primary: '#FF6E00',
         secondary: '#002878',
+      },
+    ];
+
+
+     template : any = [
+      {
+        id: 1,
+        class: 'temp1',
+        name: 'Basic'
+      },
+      {
+        id: 2,
+        class: 'temp2',
+        name: 'Dotted Background'
+
       },
     ];
 

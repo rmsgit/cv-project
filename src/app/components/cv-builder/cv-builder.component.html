@@ -16,7 +16,7 @@
     </div>
     <div class="right_content">
 
-        <div class="cv_layout {{UserData.settings.font_family}}" [ngStyle]="{'color': UserData.settings.color_theme.secondary }">
+        <div class="cv_layout {{UserData.settings.template}} {{UserData.settings.font_family}}" [ngStyle]="{'color': UserData.settings.color_theme.secondary }">
 
             <div class="header" (click)="headerToggle()">
 

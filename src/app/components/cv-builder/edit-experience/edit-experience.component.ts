@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CvBuilderComponent } from "../cv-builder.component";
+declare var jquery:any;
+declare var $ :any;
 
 
 @Component({
@@ -35,6 +37,11 @@ export class EditExperienceComponent implements OnInit {
 
   private removeExperience() : void{
     this.cv.removeExperience();
+  }
+
+  home(){
+     $('.editable').removeClass('active');
+     $('app-edit-settings').addClass('active');
   }
 
 
