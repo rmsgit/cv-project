@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database'; 
+import { AngularFireDatabase, snapshotChanges } from 'angularfire2/database'; 
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -56,24 +56,35 @@ export class LoginComponent implements OnInit {
   }
 
   gmailLogin(){
-    this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    let  signInRef = this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then( (res)=>{
 
       let gUser = res.user;
       localStorage.uid = gUser.uid;
 
       
-      this.db.object(this.path.user.current_user.profile()).valueChanges().subscribe((user)=>{
+      let ref = this.db.object(this.path.user.current_user.profile()).valueChanges().subscribe(
+      (user)=>{
+        console.log(user)
         if(!user){
             this.router.navigateByUrl('/sign-up');
         }else{
-          this.store.auth = JSON.parse(JSON.stringify(user))
+          
+          this.store.auth =JSON.parse(JSON.stringify(user));
+          // for(let applyKey of Object.keys( newUser.apply)) applyArray.push(newUser.apply[applyKey]);
+          // this.store.auth.apply = applyArray;
           localStorage.auth_store = JSON.stringify(this.store.auth)
+          ref.unsubscribe();
           this.router.navigateByUrl('/jobseeker-dashboard')
+
+         
         }
       })
+  //    .catch( (res)=>{console.error(res)  })
+
+      
     })
-    .catch( (res)=>console.error(res)  )
+    .catch( (res)=>{console.error(res)  })
   }
 
 

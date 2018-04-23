@@ -56,7 +56,7 @@ export const AppRoutes: Routes = [
       component: JobseekerDashboardComponent 
     },
 
-    { path: 'search-cv', 
+    { path: 'search-cv/:id', 
       component: CvSearchComponent 
     },
     

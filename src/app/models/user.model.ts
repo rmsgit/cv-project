@@ -4,6 +4,6 @@ export class UserModel {
       role:string;
       email: string;
       photoURL: string;
-      
+      apply:Array<any>;
   }
   

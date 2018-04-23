@@ -4,6 +4,7 @@ import { MainStoreService } from '../../store/main.store';
 import { CallerPath } from '../../caller/caller.path';
 import { JobModel } from '../../models/job.model';
 import { AuthStore } from '../../store/auth.store';
+import { NotificationHelper } from '../../helper/notification.helper';
 
 @Component({
   selector: 'app-employer-dashboard',
@@ -18,29 +19,42 @@ export class EmployerDashboardComponent implements OnInit {
   constructor(
     private db: AngularFireDatabase,
     public store: MainStoreService,
-    public authStore:AuthStore
+    public authStore:AuthStore,
+    private msg: NotificationHelper
   ) {
-    
-      this.db.object(this.path.jobs.all).valueChanges().subscribe((data)=>{
-        for(let id of Object.keys(data)){
-          let job: JobModel = JSON.parse(JSON.stringify(data[id]));
-          job.id = id;
-          if(job.meta.userId == localStorage.uid){
-            this.myPostedJobs.push(job);
-            this.applyLength[id] = 0;
-            this.db.list(this.path.jobs.applyById(id)).valueChanges().subscribe((aply)=>{
-              this.applyLength[id] =aply.length;
-            })
-          }
-          
-        }
-        console.log(this.myPostedJobs);
-      })
+
     
    }
 
   ngOnInit() {
-    
+    let jobListRef =this.db.object(this.path.jobs.all).valueChanges().subscribe((data)=>{
+      this.myPostedJobs = [];
+      for(let id of Object.keys(data)){
+        let job: JobModel = JSON.parse(JSON.stringify(data[id]));
+        job.id = id;
+        if(job.meta.userId == localStorage.uid){
+          this.myPostedJobs.push(job);
+          this.applyLength[id] = 0;
+          this.db.list(this.path.jobs.applyById(id)).valueChanges().subscribe((aply)=>{
+            console.log(aply)
+           this.applyLength[id]= aply.length;
+          })
+        }
+        
+      }
+      console.log(this.myPostedJobs);
+    })    
+  }
+
+  delete(id){
+    console.log(id)
+    this.db.list(this.path.jobs.byId(id)).remove()
+    .then((data)=>{
+      this.msg.infoMessage("Removed", "Succesful removed")
+    })
+    .catch((error)=>{
+      this.msg.errorMessage("Fail", error.message)
+    })
   }
 
 }

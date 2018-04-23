@@ -19,10 +19,12 @@ export class JobseekerDashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.db.list(this.path.jobs.myApply()).valueChanges().subscribe((res)=>{
-      console.log(res);
-      this.applyJoblist = JSON.parse(JSON.stringify(res));
-    })
+      let ref = this.db.list(this.path.jobs.myApply()).valueChanges().subscribe((res)=>{
+        console.log(res);
+        this.applyJoblist = JSON.parse(JSON.stringify(res));
+        ref.unsubscribe();
+      })
   }
+
 
 }
