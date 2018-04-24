@@ -131,27 +131,27 @@
             <div class="cv_list block  col-md-6 padding0">
                 <div class="block_inner">
                     <ul *ngIf="applicationList">
-                        <li *ngFor="let job of applicationList" class="cv">
+                        <li *ngFor="let cv of applicationList" class="cv">
                             <div class="head">
 
                                 <div class="profile_pic">
-                                    <img style="width:100%" [src]="job.auth.photoURL" />
+                                    <img style="width:100%" [src]="cv.image" />
                                 </div>
 
                                 <div class="emp_details">
                                     <div class="wrapper">
                                         <div class="emp_details_inner">
                                             <ul>
-                                                <li class="emp_name">{{job.auth.name}}</li>
+                                                <li class="emp_name">{{cv.name}}</li>
                                                 <li class="designation">Software Engineer</li>
-                                                <li class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Colombo, Sri Lanka</li>
+                                                <li class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{cv.address}}</li>
                                             </ul>
                                         </div>
-                                        <button class="ui button view_cv">View CV</button>
+                                        <button [routerLink]="'/cv-view/'+cv.uid" class="ui button view_cv">View CV</button>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="description">
-                                        {{job.cover_letter}}
+                                        <!-- {{job.cover_letter}} -->
                                     </div>
                                 </div>
 

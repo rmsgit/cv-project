@@ -23,10 +23,10 @@
 									<!-- <i class="city">{{job.location}}</i>,  -->
 									<i class="country">{{job.residence_location}}</i>
 								</span>
-                                <span class="date">Posted on: {{job.meta.date}}</span>
+                                <span class="date">Posted on: {{dateHelper.getDateString(job.meta.date)}}</span>
                             </div>
                             <div class="company_logo">
-
+                                <img *ngIf="job.imageURL" class="animated fadeIn" [src]="job.imageURL" />
                             </div>
                         </div>
                         <button class="ui button apply_now" (click)="openModal($event)">Apply Now</button>
@@ -35,7 +35,7 @@
                     <div class="body">
                         <div class="job_desc block">
                             <h3>Job Description</h3>
-                            <p>{{job.description}}</p>
+                            <p [innerHTML]="job.description"></p>
 
                         </div>
                         <div class="qualifications block">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="action_btn">
                         <div class="top">
-                            <button class="ui button apply_now">Apply Now</button>
+                            <button class="ui button apply_now" (click)="openModal($event)">Apply Now</button>
                             <button class="ui button email_to_friend">Email to Friend</button>
                         </div>
                         <div class="bottom">
@@ -127,9 +127,18 @@
                             <div class="field">
                                 <label>Upload CV</label>
                                 <div class="file_upload_wrapper">
-                                    <input type="file" class="file_upload_input" name="company-name" placeholder="Job Title">
-                                    <div class="content">
-                                        <div class="inner_content">
+                                    <div *ngIf="isUploading" class="ui active dimmer animated fadeIn">
+                                        <div class="ui mini text loader">Uploading..</div>
+                                    </div>
+                                    <input (change)="upload($event)" type="file" class="file_upload_input" name="company-name" placeholder="Job Title">
+                                    <div *ngIf="!isUploading" class="content">
+
+                                        <div *ngIf="applyJob.cvURL" class="inner_content">
+                                            <!-- <i class="icon fa fa-cloud-upload" aria-hidden="true"></i> -->
+                                            <p>Uploaded your cv</p>
+                                        </div>
+
+                                        <div *ngIf="!applyJob.cvURL" class="inner_content">
                                             <i class="icon fa fa-cloud-upload" aria-hidden="true"></i>
                                             <p>Upload your cv. Max file upload size 5MB.</p>
                                         </div>

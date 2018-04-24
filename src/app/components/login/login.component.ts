@@ -42,11 +42,11 @@ export class LoginComponent implements OnInit {
       localStorage.uid = res.user.uid;
       this.db.object(this.path.user.current_user.profile()).valueChanges().subscribe((user)=>{
         if(!user){
-            this.router.navigateByUrl('/sign-up');
+          this.message.errorMessage("Fail to login", "Your emai canot find. Please sign-up first.")
         }else{
           this.store.auth = JSON.parse(JSON.stringify(user))
           localStorage.auth_store = JSON.stringify(this.store.auth)
-          this.router.navigateByUrl('/jobseeker-dashboard')
+          this.router.navigateByUrl('/role-choose')
         }
       })
     })
@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
       (user)=>{
         console.log(user)
         if(!user){
-            this.router.navigateByUrl('/sign-up');
+            this.message.errorMessage("Fail to login", "Your emai canot find. Please sign-up first.")
         }else{
           
           this.store.auth =JSON.parse(JSON.stringify(user));
@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
           // this.store.auth.apply = applyArray;
           localStorage.auth_store = JSON.stringify(this.store.auth)
           ref.unsubscribe();
-          this.router.navigateByUrl('/jobseeker-dashboard')
+          this.router.navigateByUrl('/role-choose')
 
          
         }

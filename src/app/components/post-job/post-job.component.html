@@ -58,9 +58,14 @@
                             <input type="text" name="Salery Range" placeholder="Salery Range">
                         </div>
                     </div>
+
                     <div class="col-md-4 file_upload">
-                        <div class="file_upload_wrapper">
-                            <input type="file" class="file_upload_input" name="company-name" placeholder="Job Title">
+                        <img *ngIf="job.imageURL" class="animated fadeIn" [src]="job.imageURL" />
+                        <div *ngIf="isUploading" class="ui active dimmer animated fadeIn">
+                            <div class="ui large text loader">Uploading..</div>
+                        </div>
+                        <div *ngIf="!job.imageURL" class="file_upload_wrapper">
+                            <input (change)="upload($event)" type="file" class="file_upload_input" name="company-name" placeholder="Job Title">
                             <div class="content">
                                 <div class="inner_content">
                                     <h3>Company Logo <i class="icon icon-upload" aria-hidden="true"></i></h3>
@@ -71,10 +76,15 @@
                     </div>
                 </div>
                 <div class="row secondary_row">
+                    <!-- <quill-editor [(ngModel)]="editorContent" [options]="editorOptions" (blur)="onEditorBlured($event)" (focus)="onEditorFocused($event)" (ready)="onEditorCreated($event)" (change)="onContentChanged($event)"></quill-editor> -->
+
                     <div class="col-md-12 inline_feilds">
+
                         <div class="field full_label divider">
                             <h3>Job Description</h3>
-                            <textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="job.description"></textarea>
+                            <!-- <textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="job.description"></textarea> -->
+                            <quill-editor [ngModelOptions]="{standalone: true}" [(ngModel)]="job.description" [options]="editorOptions" (blur)="onEditorBlured($event)" (focus)="onEditorFocused($event)" (ready)="onEditorCreated($event)" (change)="onContentChanged($event)"></quill-editor>
+
                         </div>
                     </div>
                 </div>
@@ -140,6 +150,9 @@
             </form>
 
         </div>
+
     </div>
+
 </section>
+
 <app-footer></app-footer>

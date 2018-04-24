@@ -1,6 +1,7 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MainStoreService } from '../../../store/main.store';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-search-jobs',
@@ -11,21 +12,40 @@ export class SearchJobsComponent implements OnInit {
 
   title: string = "";
   city: string ="";
+  search: string = "";
 
 
   constructor(
     public store: MainStoreService,
-    public router: Router
+    public router: Router,
+    private aRouter: ActivatedRoute
   ) {
     
    }
 
   ngOnInit() {
+    this.aRouter.params.subscribe((params)=>{
+      if(params.search){
+        this.title = params.search;
+        this.search = params.search;
+        this.onSearch({
+          value: this.title
+        })
+      }
+    })
   }
   onSearch(data){
     console.log(data.value);
     console.log(this.store)
     this.store.filterJobs =  this.store.jobs
+                                        .filter( (job) => { 
+                                            try{
+                                              return (
+                                                !job.isFiled
+                                              )
+                                              
+                                            }catch(e){}  
+                                          } )
                                         .filter( (job) => { 
                                             try{
                                               return (
@@ -46,7 +66,8 @@ export class SearchJobsComponent implements OnInit {
                                         })
         
         ;
-        this.router.navigateByUrl('/jobs/0');
+        this.router.navigateByUrl('/jobs/0/'+this.search);
+        this.search = "";
   }
 
 }

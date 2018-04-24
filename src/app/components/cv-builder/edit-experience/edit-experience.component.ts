@@ -12,7 +12,7 @@ export class EditExperienceComponent implements OnInit {
 	index: number =  this.cv.UserSelectedExperienceData.index;
 	UserSelectedExperienceData : any =  this.cv.UserSelectedExperienceData;
 
-  constructor(private cv: CvBuilderComponent) { }
+  constructor(public cv: CvBuilderComponent) { }
 
   ngOnInit() {
   }
@@ -29,11 +29,11 @@ export class EditExperienceComponent implements OnInit {
   }
 
 
-   private addExperience() : void{
+   public addExperience() : void{
     this.cv.addExperience();
   }
 
-  private removeExperience() : void{
+  public removeExperience() : void{
     this.cv.removeExperience();
   }
 

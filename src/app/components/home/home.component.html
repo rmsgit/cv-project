@@ -1,77 +1,78 @@
-
- <section class="container-fluid header ">
- 	<div class="container">
- 		<app-header></app-header>
- 		<div class="header_bottom row">
- 			<div class="left_content col-lg-6 col-md-12 wow fadeInLeft">
- 				<div class="img_container">
- 					<div class="ui form">
-					  <div class="field"> 
-					  	<h2>Find the job you love.</h2>
-					    <input type="text" class="search_jobs">
-					    <button class="ui button">Search Job</button>
-					  </div>
-					</div>
- 				</div>	
- 			</div>
- 			<div class="right_content col-lg-6 col-md-12 wow fadeInRight">
- 				<div class="inner">
- 					<div class="content_holder">
- 						<h2>Employers?</h2>
- 						<h3>Post a job – Easy drag &amp; drop form</h3>
- 						<button class="ui button"  routerLink="/jobs/post-job" > 
+<section class="container-fluid header ">
+    <div class="container">
+        <app-header></app-header>
+        <div class="header_bottom row">
+            <div class="left_content col-lg-6 col-md-12 wow fadeInLeft">
+                <div class="img_container">
+                    <div class="ui form">
+                        <div class="field">
+                            <h2>Find the job you love.</h2>
+                            <form #f="ngForm" (ngSubmit)="onSearchStart(f)">
+                                <input [(ngModel)]="searchKey" type="text" name="searchKey" class="search_jobs">
+                                <button class="ui button">Search Job</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_content col-lg-6 col-md-12 wow fadeInRight">
+                <div class="inner">
+                    <div class="content_holder">
+                        <h2>Employers?</h2>
+                        <h3>Post a job – Easy drag &amp; drop form</h3>
+                        <button class="ui button" routerLink="/jobs/post-job"> 
 						  	Post a Job
 						</button>
-						<span>it is free - <i>limited time</i></span>
- 					</div>
- 				</div>
- 			</div>
-			<div class="clearfix"></div>
- 		</div>
- 		<div class="clearfix"></div>
- 	</div>
- </section>
+                        <span>it is free - <i>limited time</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</section>
 <section class="container-fluid section_1">
-	<div class="container inner">
+    <div class="container inner">
 
-		<div class="title wow fadeInUp">
-			<h2><span>FREE</span> Visual Resume Builder</h2>
-			<p>Stand out and make sure the key things come across</p>
-		</div>
-		
-		
-		<div class="row content_row"> 
-			<div class="left_content  col-lg-6 col-md-12  wow fadeInUp">
-				<img src="assets/cv.jpg" alt="">
-				<div class="col-md-12">
-					<button class="ui button start_now" routerLink="/cv-builder"> Start Now </button>
-				</div>
-			</div>
-			<div class="right_content  col-lg-6 col-md-12  wow fadeInUp"  data-wow-delay="1s">
-				<h3>How It Works</h3>
-				<img src="assets/how-it-works.jpg" alt="">
-			</div>
-		</div>
+        <div class="title wow fadeInUp">
+            <h2><span>FREE</span> Visual Resume Builder</h2>
+            <p>Stand out and make sure the key things come across</p>
+        </div>
 
-	</div> 
+
+        <div class="row content_row">
+            <div class="left_content  col-lg-6 col-md-12  wow fadeInUp">
+                <img src="assets/cv.jpg" alt="">
+                <div class="col-md-12">
+                    <button class="ui button start_now" routerLink="/cv-builder"> Start Now </button>
+                </div>
+            </div>
+            <div class="right_content  col-lg-6 col-md-12  wow fadeInUp" data-wow-delay="1s">
+                <h3>How It Works</h3>
+                <img src="assets/how-it-works.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
 </section>
 <section class="container-fluid section_2">
-	<div class="container inner">
-		<div class="title wow fadeInUp">
-			<h2><span>Video</span> Resume</h2>
-			<p>Video resume will add a personal touch and have the recruiter get a chance to know you better</p>
-		</div>
-		 
-		<div class="row video_row"> 
-			<div class="left_content  col-lg-6 col-md-12 wow fadeInLeft">
-				<h3><span>More</span> Info</h3>
-				<img src="assets/more_info.jpg" alt="">
-			</div>
-			<div class="right_content  col-lg-6 col-md-12 wow fadeInRight">
-				<h3><span>How</span> to record a video resume?</h3>
-				<img src="assets/recode_resume.jpg" alt="">
-			</div>
-		</div>
-	</div>
+    <div class="container inner">
+        <div class="title wow fadeInUp">
+            <h2><span>Video</span> Resume</h2>
+            <p>Video resume will add a personal touch and have the recruiter get a chance to know you better</p>
+        </div>
+
+        <div class="row video_row">
+            <div class="left_content  col-lg-6 col-md-12 wow fadeInLeft">
+                <h3><span>More</span> Info</h3>
+                <img src="assets/more_info.jpg" alt="">
+            </div>
+            <div class="right_content  col-lg-6 col-md-12 wow fadeInRight">
+                <h3><span>How</span> to record a video resume?</h3>
+                <img src="assets/recode_resume.jpg" alt="">
+            </div>
+        </div>
+    </div>
 </section>
 <app-footer></app-footer>

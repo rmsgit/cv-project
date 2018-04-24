@@ -12,7 +12,7 @@ export class EditSkillsComponent implements OnInit {
   	index: number =  this.cv.UserSelectedSkillData.index;
   	UserSelectedSkillData : any =  this.cv.UserSelectedSkillData;
 
-  	constructor(private cv: CvBuilderComponent) { }
+  	constructor(public cv: CvBuilderComponent) { }
 
   ngOnInit() {
   	console.log(this.UserSelectedSkillData)
@@ -33,11 +33,10 @@ export class EditSkillsComponent implements OnInit {
   }
 
 
-   private addSkills() : void{
+   public addSkills() : void{
     this.cv.addSkills();
   }
-
-  private removeSkills() : void{
+   public removeSkills() : void{
     this.cv.removeSkills();
   }
 

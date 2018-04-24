@@ -16,7 +16,7 @@ export class EditEducationComponent implements OnInit {
 
 
 
-  constructor(private cv: CvBuilderComponent) { }
+  constructor(public cv: CvBuilderComponent) { }
 
   ngOnInit() { 
 
@@ -39,11 +39,11 @@ export class EditEducationComponent implements OnInit {
   }
 
 
-  private addCollege() : void{
+  public addCollege() : void{
     this.cv.addCollege();
   }
 
-  private removeCollege() : void{
+  public removeCollege() : void{
     this.cv.removeCollege();
   }
 

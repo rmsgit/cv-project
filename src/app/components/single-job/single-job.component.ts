@@ -6,6 +6,13 @@ import { JobModel } from '../../models/job.model';
 import { AuthStore } from '../../store/auth.store';
 import { ApplyJobModel } from '../../models/apply.job.model';
 import { NotificationHelper } from '../../helper/notification.helper';
+import { DateHelper } from '../../helper/date.helper';
+
+import { FirebaseApp } from 'angularfire2';
+import * as firebase from 'firebase/app'
+import 'firebase/storage'
+
+
 declare var jquery:any;
 declare var $ :any;
 
@@ -21,11 +28,17 @@ export class SingleJobComponent implements OnInit {
   public job: JobModel =  new JobModel();
   public applyJob: ApplyJobModel =  new ApplyJobModel();
 
+  fileSrc:any;
+  isUploading: boolean =  false;
+
+
   constructor(
     private activatedRoute: ActivatedRoute,
     public authStore: AuthStore,
     public messgae: NotificationHelper,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private firebase: FirebaseApp,
+    public dateHelper: DateHelper
   ) {
 
    }
@@ -73,6 +86,29 @@ export class SingleJobComponent implements OnInit {
     })
     
   }
+
+  upload(event){
+
+    this.isUploading = true;
+    let eventObj: MSInputMethodContext = <MSInputMethodContext> event;
+    let target: HTMLInputElement = <HTMLInputElement> eventObj.target;
+    let files: FileList = target.files;
+    this.fileSrc = files[0];
+    if(this.fileSrc){
+      console.log(this.fileSrc);
+      const storageRef = this.firebase.storage().ref().child(`cv/${localStorage.uid}${Date.now()}`);
+      storageRef.put(this.fileSrc).then((res)=>{
+        
+        console.log("Upload success",res.downloadURL);
+        this.applyJob.cvURL  = res.downloadURL;
+        this.isUploading = false;
+      })
+    }
+   
+
+
+  }
+
  
 
 }

@@ -8,10 +8,11 @@ import { CvBuilderComponent } from "../cv-builder.component";
 })
 export class EditCvHeaderComponent implements OnInit {
 
-	UserData : any = this.cv.UserData;
+
+	//UserData : any = this.cv.UserData;
 
 
-  constructor(private cv: CvBuilderComponent) { }
+  constructor(public cv: CvBuilderComponent) { }
 
   ngOnInit() {
   }

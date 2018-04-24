@@ -8,6 +8,7 @@ export class ApplyJobModel{
     online_resume: string;
     video_resume: string;
     cd: string;
+    cvURL: string;
     
     constructor(){
         this.date = Date();

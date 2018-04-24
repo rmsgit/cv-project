@@ -11,7 +11,7 @@ export class EditQualificationsComponent implements OnInit {
   	index: number =  this.cv.UserSelectedQualificationsData.index;
   	UserSelectedQualificationsData : any =  this.cv.UserSelectedQualificationsData;
 
-  	constructor(private cv: CvBuilderComponent) { }
+  	constructor(public cv: CvBuilderComponent) { }
 
   ngOnInit() {
   	
@@ -31,11 +31,11 @@ export class EditQualificationsComponent implements OnInit {
   }
 
 
-   private addQualifications() : void{
+   public addQualifications() : void{
     this.cv.addQualifications();
   }
 
-  private removeQualifications() : void{
+  public removeQualifications() : void{
     this.cv.removeQualifications();
   }
 

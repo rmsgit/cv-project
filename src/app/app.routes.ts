@@ -11,6 +11,8 @@ import { CvBuilderComponent } from './components/cv-builder/cv-builder.component
 import { EmployerDashboardComponent } from './components/employer-dashboard/employer-dashboard.component';
 import { JobseekerDashboardComponent } from './components/jobseeker-dashboard/jobseeker-dashboard.component';
 import { CvSearchComponent } from './components/cv-search/cv-search.component';
+import { RoleChooseComponent } from './components/role-choose/role-choose.component';
+import { ViewApplyComponent } from './components/view-apply/view-apply.component';
 
 export const AppRoutes: Routes = [
   	{ path: 'profile', 
@@ -28,9 +30,6 @@ export const AppRoutes: Routes = [
   	{ path: 'login', 
     	component: LoginComponent 
   	},
-
-    
-
     { path: 'jobs/view-job/:id', 
       component: SingleJobComponent 
     },
@@ -43,7 +42,14 @@ export const AppRoutes: Routes = [
       component: JobsComponent 
     },
 
+		{ path: 'jobs/:page/:search', 
+      component: JobsComponent 
+    },
+
     { path: 'cv-builder', 
+      component: CvBuilderComponent 
+    },
+    { path: 'cv-view/:id', 
       component: CvBuilderComponent 
     },
 
@@ -58,6 +64,12 @@ export const AppRoutes: Routes = [
 
     { path: 'search-cv/:id', 
       component: CvSearchComponent 
+    },
+    { path: 'role-choose', 
+      component: RoleChooseComponent 
+    },
+    { path: 'view-apply/:id', 
+      component: ViewApplyComponent 
     },
     
 

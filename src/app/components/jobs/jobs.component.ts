@@ -5,6 +5,7 @@ import { MainStoreService } from '../../store/main.store';
 import { JobModel } from '../../models/job.model';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { DateHelper } from '../../helper/date.helper';
 
 @Component({
   selector: 'app-jobs',
@@ -26,7 +27,8 @@ export class JobsComponent implements OnInit {
     private db: AngularFireDatabase,
     public store: MainStoreService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public dateHelper: DateHelper
   ) { 
     this.route.params.subscribe(params => {
       this.page = parseInt(params['page']); 
@@ -39,16 +41,20 @@ export class JobsComponent implements OnInit {
     this.isInitFinish = false;
     this.db.object(this.path.jobs.all).valueChanges().subscribe((res)=>{
           this.isInitFinish = false;
-           this.store.jobs = new Array<JobModel>();
-           this.store.filterJobs  = new Array<JobModel>();
+          this.store.jobs = new Array<JobModel>();
+          this.store.filterJobs  = new Array<JobModel>();
           var jobIds =  Object.keys(res).reverse();
+          
           for (let jobId of jobIds){
             var job: JobModel = res[jobId];
-            job.id =  jobId;
-            this.store.jobs.push(job);
-            this.store.filterJobs.push(job);
-            if(job.residence_location) this.store.currentCuntries[job.residence_location] = false;
-            if(job.location) this.store.currentCities[job.location] = false;
+            if(!job.isFiled){
+              job.id =  jobId;
+              this.store.jobs.push(job);
+              this.store.filterJobs.push(job);
+              if(job.residence_location) this.store.currentCuntries[job.residence_location] = false;
+              if(job.location) this.store.currentCities[job.location] = false;
+            }
+        
           }
     
           this.countyList = Object.keys(this.store.currentCuntries);

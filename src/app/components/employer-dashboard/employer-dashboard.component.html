@@ -32,15 +32,16 @@
                     <tbody>
                         <tr *ngFor="let job of myPostedJobs">
                             <td>{{job.title}}</td>
-                            <td>{{job.close_date}}</td>
+                            <td>{{dateHelper.getDateString(job.close_date)}}</td>
                             <td>
                                 <div class="ui toggle checkbox">
-                                    <input type="checkbox" tabindex="0" class="hidden">
-                                    <label>No</label>
+
+                                    <input (click)="filled(job.id, job.isFiled)" [checked]="job.isFiled" type="checkbox" name="public">
+                                    <label></label>
                                 </div>
                             </td>
-                            <td>{{job.meta.date}}</td>
-                            <td>{{job.close_date}}</td>
+                            <td>{{dateHelper.getDateString(job.meta.date)}}</td>
+                            <td>{{dateHelper.getDateString(job.close_date)}}</td>
                             <td>
                                 <Button [routerLink]="'/search-cv/'+job.id" class="ui button">Show ({{applyLength[job.id]}} )</Button>
                             </td>

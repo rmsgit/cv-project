@@ -9,6 +9,7 @@ export class JobModel{
     close_date:string;
     salery_range:string;
     description:string;
+    descriptionText:string;
     career_level:string;
     years_of_experience:string;
     residence_location:string;
@@ -17,8 +18,11 @@ export class JobModel{
     age:string;
     skills:string;
     benifits:string;
+    imageURL: string;
     meta: Meta;
 
+    isFiled:boolean;
+    
     constructor(){
         this.meta = new Meta();
 

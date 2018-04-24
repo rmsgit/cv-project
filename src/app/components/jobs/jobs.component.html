@@ -106,7 +106,7 @@
                                 <h3 [routerLink]="'/jobs/view-job/'+job.id">
                                     {{job.title}} - {{job.residence_location}}
                                 </h3>
-                                <div class="date">{{job.close_date}}</div>
+                                <div class="date">{{dateHelper.getDateString(job.close_date)}}</div>
 
                                 <div class="company_details">
                                     <div class="company_details_inner">
@@ -116,7 +116,8 @@
 											<i class="country">{{job.residence_location}}</i>
 										</span>
                                     </div>
-                                    <div class="company_logo">
+                                    <img *ngIf="job.imageURL" class="company_logo animated fadeIn" [src]="job.imageURL" />
+                                    <div *ngIf="!job.imageURL" class="company_logo">
 
                                     </div>
                                 </div>
@@ -124,7 +125,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="body">
-                                {{job.description}}
+                                {{job.descriptionText}}
                             </div>
                         </li>
                     </ul>

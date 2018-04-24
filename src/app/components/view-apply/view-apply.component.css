@@ -1,0 +1,20 @@
+.job-image {
+    width: 100%;
+}
+
+.job-name {
+    color: #2dc08d;
+}
+
+.button {
+    border-radius: 0;
+}
+
+.green {
+    background: #2dc08d !important;
+    border-radius: 2px;
+}
+
+.blue {
+    background: #167ac6 !important;
+}

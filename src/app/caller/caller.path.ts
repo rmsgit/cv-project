@@ -22,5 +22,11 @@ export  class CallerPath {
     myApply: ()=>{ if(localStorage.uid) { return '/users/profile/' + localStorage.uid + '/apply' } else return ""}
   }
 
+  cv= {
+    myCv: ()=> {if(localStorage.uid) { return '/cv/' + localStorage.uid } else return ""},
+    cvByUid: (uid)=> { return '/cv/' + uid },
+    all: '/cv/'
+  }
+
 
 }

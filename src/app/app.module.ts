@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {InlineEditorModule} from '@qontu/ngx-inline-editor';
-
+import { InlineEditorModule } from '@qontu/ngx-inline-editor';
+import { QuillEditorModule } from 'ngx-quill-editor';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from "./app.routes";
@@ -48,6 +48,8 @@ import { EditSkillsComponent } from './components/cv-builder/edit-skills/edit-sk
 import { EditQualificationsComponent } from './components/cv-builder/edit-qualifications/edit-qualifications.component';
 import { EditPortfolioComponent } from './components/cv-builder/edit-portfolio/edit-portfolio.component';
 import { EditSettingsComponent } from './components/cv-builder/edit-settings/edit-settings.component';
+import { RoleChooseComponent } from './components/role-choose/role-choose.component';
+import { ViewApplyComponent } from './components/view-apply/view-apply.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDdAZk2xDplAJ2xSdIyJSF-jv2DUAFG0Fk",
@@ -73,9 +75,8 @@ var firebaseConfig = {
     JobsComponent,
     SingleJobComponent,
     SearchJobsComponent, 
-    PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent, JobseekerDashboardComponent, CvSearchComponent, EditCvHeaderComponent, EditEducationComponent, EditExperienceComponent, EditSkillsComponent, EditQualificationsComponent, EditPortfolioComponent, EditSettingsComponent
-    
-
+    PostJobComponent, SearchCvComponent, CvBuilderComponent, EmployerDashboardComponent, JobseekerDashboardComponent, CvSearchComponent, EditCvHeaderComponent, EditEducationComponent, EditExperienceComponent, EditSkillsComponent, EditQualificationsComponent, EditPortfolioComponent, EditSettingsComponent, RoleChooseComponent, ViewApplyComponent
+  
   ],
   imports: [
     RouterModule.forRoot(AppRoutes, { useHash: true }),
@@ -84,13 +85,15 @@ var firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     InlineEditorModule,
-   
-    
+    QuillEditorModule,
+
     FormsModule, 
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
-  exports: [ RouterModule ],
+  exports: [ 
+    RouterModule ],
   providers: [
     /**
      * Calllers

@@ -23,7 +23,7 @@ export class CvSearchComponent implements OnInit {
     this.route.params.subscribe(params => {
       let id = params['id']; 
       console.log(id)
-      this.db.list(this.path.jobs.applyById(id)).valueChanges().subscribe((list)=>{
+      this.db.list(this.path.cv.all).valueChanges().subscribe((list)=>{
         console.log(list)
         this.applicationList = JSON.parse(JSON.stringify(list));
       });

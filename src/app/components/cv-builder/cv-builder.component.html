@@ -4,7 +4,7 @@
     </div>
 </section>
 <section class="container-fluid cv_builder_wrapper">
-    <div class="left_content">
+    <div *ngIf="isSettingsShow" class="left_content">
         <app-edit-settings class="editable active"></app-edit-settings>
         <app-edit-cv-header class="editable"></app-edit-cv-header>
         <app-edit-education class="editable"></app-edit-education>
@@ -15,132 +15,134 @@
 
     </div>
     <div class="right_content">
-
         <div class="cv_layout {{UserData.settings.font_family}}" [ngStyle]="{'color': UserData.settings.color_theme.secondary }">
+            <div (change)="pageSize()" id="test">
+                <div class="header" (click)="headerToggle()">
 
-            <div class="header" (click)="headerToggle()">
-
-                <div class="user_img">
-
-                </div>
-                <div class="user_details">
-                    <div class="name" [ngStyle]="{'color': UserData.settings.color_theme.secondary }">
-                        <h2>{{UserData.name}}</h2>
+                    <div *ngIf="!UserData.image" class="user_img"></div>
+                    <img class="user_img" *ngIf="UserData.image" [src]="UserData.image" />
+                    <!-- </div> -->
+                    <div class="user_details">
+                        <div class="name" [ngStyle]="{'color': UserData.settings.color_theme.secondary }">
+                            <h2>{{UserData.name}}</h2>
+                        </div>
+                        <ul class="contact_details">
+                            <li *ngIf="UserData.address">
+                                <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-location icon" aria-hidden="true"></i> {{UserData.address}}
+                            </li>
+                            <li *ngIf="UserData.phone">
+                                <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-phone icon" aria-hidden="true"></i> {{UserData.phone}}
+                            </li>
+                            <li *ngIf="UserData.mobile">
+                                <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-mobile icon" aria-hidden="true"></i> {{UserData.mobile}}
+                            </li>
+                            <li>
+                                <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-envelope icon" aria-hidden="true"></i> {{UserData.email}}
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="contact_details">
-                        <li>
-                            <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-location icon" aria-hidden="true"></i> {{UserData.address}}
-                        </li>
-                        <li>
-                            <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-phone icon" aria-hidden="true"></i> {{UserData.phone}}
-                        </li>
-                        <li>
-                            <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-mobile icon" aria-hidden="true"></i> {{UserData.mobile}}
-                        </li>
-                        <li>
-                            <i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-envelope icon" aria-hidden="true"></i> {{UserData.email}}
-                        </li>
-                    </ul>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="education cv_block">
-                            <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
-                                <h3>Education <a href="javascript:void(0)" (click)="addCollege()">Add Education</a></h3>
+                <div class="body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="education cv_block">
+                                <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
+                                    <h3>Education <a *ngIf="isCvButtonShow" href="javascript:void(0)" (click)="addCollege()">Add Education</a></h3>
 
 
-                            </div>
-                            <div class="content">
-                                <div class="edu_ blk" *ngFor="let edu of UserData.education;  let i = index" [attr.data-index]="i" (click)="editCollege(i)">
-                                    <span class="edu_title">{{  edu.college_name  }}</span>
-                                    <span class="edu_location">  
+                                </div>
+                                <div class="content">
+                                    <div class="edu_ blk" *ngFor="let edu of UserData.education;  let i = index" [attr.data-index]="i" (click)="editCollege(i)">
+                                        <span class="edu_title">{{  edu.college_name  }}</span>
+                                        <span class="edu_location">  
 										<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-location icon"></i> {{ edu.college_city}}
 									</span>
 
-                                    <div class="edu_desc">
-                                        {{edu.description}}
+                                        <div class="edu_desc">
+                                            {{edu.description}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="qualifications cv_block">
-                            <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
-                                <h3>Qualifications <a href="javascript:void(0)" (click)="addQualifications()">Add Qualifications</a></h3>
-                            </div>
-                            <div class="content">
-                                <div class="qualifications_ blk" *ngFor="let q of UserData.qualifications;  let i = index" (click)="editQualifications(i)">
-                                    <span class="q_name"><i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-medal"></i>{{q.qualifications}}</span>
-                                    <span class="q_desc" *ngIf="q.show_description"> {{q.description}} </span>
-
+                            <div class="qualifications cv_block">
+                                <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
+                                    <h3>Qualifications <a *ngIf="isCvButtonShow" href="javascript:void(0)" (click)="addQualifications()">Add Qualifications</a></h3>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="content">
+                                    <div class="qualifications_ blk" *ngFor="let q of UserData.qualifications;  let i = index" (click)="editQualifications(i)">
+                                        <span class="q_name"><i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-medal"></i>{{q.qualifications}}</span>
+                                        <span class="q_desc" *ngIf="q.show_description"> {{q.description}} </span>
 
-                        <div class="skills cv_block">
-                            <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
-                                <h3>Skills <a href="javascript:void(0)" (click)="addSkills()">Add Skills</a></h3>
-                            </div>
-                            <div class="content">
-                                <div class="skills_ blk" *ngFor="let skills of UserData.skills;  let i = index" (click)="editSkills(i)">
-                                    <div class="top">
-                                        <span class="skill_name">{{skills.skill_name}}</span>
-                                        <span class="skill_rating" [ngStyle]="{'color': UserData.settings.color_theme.primary }">{{skills.skill_rating}}/10</span>
-                                        <div class="clearfix"></div>
                                     </div>
-                                    <span class="skill_desc" *ngIf="skills.show_description"> {{skills.description}} </span>
-
                                 </div>
                             </div>
+
+                            <div class="skills cv_block">
+                                <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
+                                    <h3>Skills <a *ngIf="isCvButtonShow" href="javascript:void(0)" (click)="addSkills()">Add Skills</a></h3>
+                                </div>
+                                <div class="content">
+                                    <div class="skills_ blk" *ngFor="let skills of UserData.skills;  let i = index" (click)="editSkills(i)">
+                                        <div class="top">
+                                            <span class="skill_name">{{skills.skill_name}}</span>
+                                            <span class="skill_rating" [ngStyle]="{'color': UserData.settings.color_theme.primary }">{{skills.skill_rating}}/10</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <span class="skill_desc" *ngIf="skills.show_description"> {{skills.description}} </span>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="experience cv_block">
-                            <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
-                                <h3>Experience <a href="javascript:void(0)" (click)="addExperience()">Add Experience</a></h3>
-                            </div>
-                            <div class="content">
-                                <div class="exp_ blk" *ngFor="let exp of UserData.work_experience;  let i = index" (click)="editExperience(i)">
-                                    <span class="exp_title">{{exp.designation}}</span>
-                                    <span class="exp_company_name">{{exp.company_name}}</span>
-                                    <span class="exp_company_location">  
+                        <div class="col-md-6">
+                            <div class="experience cv_block">
+                                <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
+                                    <h3>Experience <a *ngIf="isCvButtonShow" href="javascript:void(0)" (click)="addExperience()">Add Experience</a></h3>
+                                </div>
+                                <div class="content">
+                                    <div class="exp_ blk" *ngFor="let exp of UserData.work_experience;  let i = index" (click)="editExperience(i)">
+                                        <span class="exp_title">{{exp.designation}}</span>
+                                        <span class="exp_company_name">{{exp.company_name}}</span>
+                                        <span class="exp_company_location">  
 										<i [ngStyle]="{'color': UserData.settings.color_theme.primary }" class="icon-location icon"></i> {{exp.location}}
 									</span>
-                                    <div class="exp_desc">
-                                        {{exp.description}}
+                                        <div class="exp_desc">
+                                            {{exp.description}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="portfolio cv_block">
-                            <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
-                                <h3>Portfolio <a href="javascript:void(0)" (click)="addPortfolio()">Add Portfolio</a></h3>
-                            </div>
-                            <div class="content">
-                                <div class="portfolio_ blk" *ngFor="let p of UserData.portfolio;  let i = index" (click)="editPortfolio(i)">
-                                    <span class="p_title">{{p.title}}</span>
-                                    <span class="p_subtitle">{{p.subtitle}}</span>
-                                    <div class="p_desc">
-                                        {{p.description}}
+                            <div class="portfolio cv_block">
+                                <div class="title" [ngStyle]="{'color': UserData.settings.color_theme.primary, 'border-color': UserData.settings.color_theme.secondary }">
+                                    <h3>Portfolio <a *ngIf="isCvButtonShow" href="javascript:void(0)" (click)="addPortfolio()">Add Portfolio</a></h3>
+                                </div>
+                                <div class="content">
+                                    <div class="portfolio_ blk" *ngFor="let p of UserData.portfolio;  let i = index" (click)="editPortfolio(i)">
+                                        <span class="p_title">{{p.title}}</span>
+                                        <span class="p_subtitle">{{p.subtitle}}</span>
+                                        <div class="p_desc">
+                                            {{p.description}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
+
+
                 </div>
-
-
             </div>
         </div>
-        <div class="center_layout">
-            <button class="ui button" (click)="getData()">Generate CV</button>
+        <div *ngIf="isSettingsShow" class="center_layout">
+
+            <button class="ui button" (click)="download()">Download CV</button>
+            <button class="ui button" (click)="save()">Save CV</button>
         </div>
 
     </div>

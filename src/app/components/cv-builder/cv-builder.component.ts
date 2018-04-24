@@ -1,7 +1,15 @@
 import { Component, OnInit, Injectable, Input, Renderer2 } from '@angular/core';
 import ClassicEditor from '@ckeditor/ckeditor5-build-inline'; 
+import * as html2canvas from "html2canvas";
+import { AngularFireDatabase } from 'angularfire2/database';
+import { CallerPath } from '../../caller/caller.path';
+import { NotificationHelper } from '../../helper/notification.helper';
+import { AuthStore } from '../../store/auth.store';
+import { ActivatedRoute } from '@angular/router';
+
 declare var jquery:any;
 declare var $ :any;
+declare let jsPDF;
 
 @Component({
   selector: 'app-cv-builder',
@@ -15,14 +23,18 @@ export class CvBuilderComponent implements OnInit {
 
 	headerAct : boolean = false;
 	educationAct : boolean  = false;
-	active : boolean  = true;
-
+  active : boolean  = true;
+  
+  path =  new CallerPath();
+  pageHeight: number;
 	UserData : any = {
-        name: 'Your Name',
+        name: this.auth.auth.name,
+        image: this.auth.auth.photoURL,
+        uid: localStorage.uid,
         address: '123 Street No, City, Province, Country', 
         phone: '(+000) 12 345 6789',
         mobile: '(+000) 12 345 6789',
-        email: 'myemailaddress@email.com',
+        email: this.auth.auth.email,
         education: [{
             college_name: 'College1',
             college_city: 'City1',
@@ -237,17 +249,52 @@ export class CvBuilderComponent implements OnInit {
   }
 
 
+  isSettingsShow: boolean = true;
+  isCvButtonShow: boolean = true;
 
-  constructor(private renderer: Renderer2) {  
+  constructor(
+    private db: AngularFireDatabase,
+    private renderer: Renderer2,
+    public message: NotificationHelper,
+    public auth: AuthStore,
+    private aRoute: ActivatedRoute
+
+  ) {  
+ 
+
+  
  
   } 
 
   ngOnInit() {
- 	 
+    this.aRoute.params.subscribe((params)=>{
+      if(params.id){
+        this.isCvButtonShow = false;
+        this.isSettingsShow = false;
+        this.db.object(this.path.cv.cvByUid(params.id)).valueChanges()
+        .subscribe((res)=>{
+            this.UserData = JSON.parse(JSON.stringify(res))
+        })
+      }else{
+        let ref = this.db.object(this.path.cv.myCv()).valueChanges().subscribe((res)=>{
+          if (res){
+            this.UserData = JSON.parse(JSON.stringify(res));
+            console.log(this.UserData);
+            
+            ref.unsubscribe();
+          } 
+        })
+      }
+    })
 
-    console.log(this.UserData)
- 
-  	
+  //  console.log(this.UserData)
+  $('#test').change(function(){
+    console.log("test", $('#test').height());
+  })
+
+
+
+  
   }
  
 
@@ -255,14 +302,14 @@ getData(){
 	console.log(this.UserData);
 }
 
-private headerToggle() : void{ 
+public headerToggle() : void{ 
   
   this.openSlide('app-edit-cv-header');
 
 }
 
 
-private CollegeToggle() : void{
+public CollegeToggle() : void{
 	
  
 }
@@ -283,7 +330,7 @@ public addCollege() : void{
 
 }
 
-private editCollege(i) : void{ 
+public editCollege(i) : void{ 
 	this.UserSelectedEducationData.college_name = this.UserData.education[i].college_name;
 	this.UserSelectedEducationData.description = this.UserData.education[i].description;
 	this.UserSelectedEducationData.college_city = this.UserData.education[i].college_city;
@@ -316,7 +363,7 @@ public addExperience() : void{
 
 }
 
-private editExperience(i) : void{ 
+public editExperience(i) : void{ 
   this.UserSelectedExperienceData.company_name = this.UserData.work_experience[i].company_name;
   this.UserSelectedExperienceData.designation = this.UserData.work_experience[i].designation;
   this.UserSelectedExperienceData.location = this.UserData.work_experience[i].location;
@@ -350,7 +397,7 @@ public addSkills() : void{
 
 }
 
-private editSkills(i) : void{ 
+public editSkills(i) : void{ 
   this.UserSelectedSkillData.skill_name = this.UserData.skills[i].skill_name;
   this.UserSelectedSkillData.skill_rating = this.UserData.skills[i].skill_rating; 
   this.UserSelectedSkillData.description = this.UserData.skills[i].description;
@@ -384,7 +431,7 @@ public addQualifications() : void{
 
 }
 
-private editQualifications(i) : void{ 
+public editQualifications(i) : void{ 
   this.UserSelectedQualificationsData.qualifications = this.UserData.qualifications[i].qualifications; 
   this.UserSelectedQualificationsData.description = this.UserData.qualifications[i].description;
   this.UserSelectedQualificationsData.show_description = this.UserData.qualifications[i].show_description;
@@ -418,7 +465,7 @@ public addPortfolio() : void{
 
 }
 
-private editPortfolio(i) : void{ 
+public editPortfolio(i) : void{ 
   this.UserSelectedPortfolioData.title = this.UserData.portfolio[i].title; 
   this.UserSelectedPortfolioData.subtitle = this.UserData.portfolio[i].subtitle;
   this.UserSelectedPortfolioData.description = this.UserData.portfolio[i].description;
@@ -441,11 +488,47 @@ public removePortfolio() : void{
 /* ----------------------------------------------- */
 
 
-private openSlide(element){
+public openSlide(element){
   $('.editable').removeClass('active');
   $(element).addClass('active');
 }
+download(){
+  let doc = new jsPDF('p', 'in', 'a4', true);
+
+  // Add a title to your PDF
+  // Create your table here (The dynamic table needs to be converted to canvas).
+  let element = <HTMLScriptElement>document.getElementsByClassName("cv_layout")[0];
+
+  html2canvas(element)
+
+  .then((canvas: any) => {
+      console.log(canvas);
+      var width = doc.internal.pageSize.width;    
+      var height = doc.internal.pageSize.height;
+      doc.addImage(canvas.toDataURL("image/png"), "JPEG", 0, 0, width, height);
+      doc.save(`Report-${Date.now()}.pdf`);
+  
+    })
+
+//   doc.addHTML(element,function() {
+//     doc.output('datauri');
+//     doc.save(`CV-${Date.now()}.pdf`);
+// });
+}
+
+ pageSize(){
+  console.log("test", $('#test').height());
+ }
  
- 
+ save(){
+   this.UserData.uid = localStorage.uid;
+    this.db.object(this.path.cv.myCv()).set(this.UserData)
+    .then(()=>{
+      this.message.successMessage("Saved", "Succesfuly Saved");
+    })
+    .catch((error)=>{
+      this.message.errorMessage("Fail", error.message );
+    })
+ }
 
 }

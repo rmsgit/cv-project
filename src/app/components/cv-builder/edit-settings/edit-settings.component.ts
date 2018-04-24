@@ -12,7 +12,7 @@ export class EditSettingsComponent implements OnInit {
   Colors : any =  this.cv.Colors; 
   User : any =  this.cv.UserData; 
 
-  constructor(private cv: CvBuilderComponent) { }
+  constructor(public cv: CvBuilderComponent) { }
 
   ngOnInit() {
   }

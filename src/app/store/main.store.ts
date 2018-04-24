@@ -17,7 +17,6 @@ export class MainStoreService {
     }
 
     getJobs(index){
-        console.log(index)
         let returnArray = new Array<JobModel>();
         let endIndex = index*15+15;
         if(endIndex > this.filterJobs.length) endIndex = this.filterJobs.length;

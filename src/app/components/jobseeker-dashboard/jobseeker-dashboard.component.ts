@@ -13,6 +13,7 @@ export class JobseekerDashboardComponent implements OnInit {
   public path = new CallerPath();
 
   public applyJoblist: Array<any>;
+  public userID:string = localStorage.uid;
   constructor(
     public authStore: AuthStore,
     private db: AngularFireDatabase

@@ -12,7 +12,7 @@ export class EditPortfolioComponent implements OnInit {
   	index: number =  this.cv.UserSelectedPortfolioData.index;
   	UserSelectedPortfolioData : any =  this.cv.UserSelectedPortfolioData;
 
-  	constructor(private cv: CvBuilderComponent) { }
+  	constructor(public cv: CvBuilderComponent) { }
 
   ngOnInit() {
   }
@@ -28,11 +28,11 @@ export class EditPortfolioComponent implements OnInit {
   }
 
 
-   private addPortfolio() : void{
+   public addPortfolio() : void{
     this.cv.addPortfolio();
   }
 
-  private removePortfolio() : void{
+  public removePortfolio() : void{
     this.cv.removePortfolio();
   }
 

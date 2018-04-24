@@ -5,6 +5,7 @@ import { CallerPath } from '../../caller/caller.path';
 import { JobModel } from '../../models/job.model';
 import { AuthStore } from '../../store/auth.store';
 import { NotificationHelper } from '../../helper/notification.helper';
+import { DateHelper } from '../../helper/date.helper';
 
 @Component({
   selector: 'app-employer-dashboard',
@@ -16,11 +17,13 @@ export class EmployerDashboardComponent implements OnInit {
   public path = new CallerPath();
   public myPostedJobs: Array<JobModel> = new Array<JobModel>();
   public applyLength: Object = {};
+
   constructor(
     private db: AngularFireDatabase,
     public store: MainStoreService,
     public authStore:AuthStore,
-    private msg: NotificationHelper
+    public msg: NotificationHelper,
+    public dateHelper: DateHelper
   ) {
 
     
@@ -57,4 +60,10 @@ export class EmployerDashboardComponent implements OnInit {
     })
   }
 
+  filled(jobId, isFiled){
+    this.db.object(this.path.jobs.byId(jobId))
+    .update({
+      isFiled: !isFiled
+    })
+  }
 }
