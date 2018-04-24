@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CvBuilderComponent } from "../cv-builder.component";
-
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   selector: 'app-edit-portfolio',
@@ -34,6 +35,11 @@ export class EditPortfolioComponent implements OnInit {
 
   public removePortfolio() : void{
     this.cv.removePortfolio();
+  }
+
+   home(){
+     $('.editable').removeClass('active');
+     $('app-edit-settings').addClass('active');
   }
 
 }

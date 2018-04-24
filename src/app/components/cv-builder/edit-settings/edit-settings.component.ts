@@ -11,6 +11,7 @@ export class EditSettingsComponent implements OnInit {
   fontFamily : any =  this.cv.fontFamily; 
   Colors : any =  this.cv.Colors; 
   User : any =  this.cv.UserData; 
+  template: any = this.cv.template;
 
   constructor(public cv: CvBuilderComponent) { }
 
@@ -27,5 +28,12 @@ export class EditSettingsComponent implements OnInit {
   	this.cv.UserData.settings.color_theme.id = index; 
 
   }
+
+
+  selectTemplate(index){
+    this.cv.UserData.settings.template = this.cv.template[index].class; 
+    this.selectTheme(index);
+  }
+  
 
 }
